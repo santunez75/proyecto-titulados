@@ -74,6 +74,9 @@ def barras(
     """Grafico de barras ordenado, con los valores anotados."""
     fig, ax = plt.subplots()
     color = color or config.PALETA["primario"]
+    # Los tipos anulables de pandas (Int16, Float64) no son interpretables por
+    # matplotlib: se convierten a float antes de graficar.
+    datos = datos.astype("float64")
 
     if horizontal:
         datos = datos.sort_values()
@@ -101,6 +104,7 @@ def barras_agrupadas(
     """Barras agrupadas a partir de una tabla ancha (filas = categorias)."""
     fig, ax = plt.subplots()
     paleta = colores or config.PALETA_GENERO
+    tabla = tabla.astype("float64")
     tabla.plot(
         kind="barh",
         ax=ax,
@@ -126,6 +130,7 @@ def serie_temporal(
 ) -> plt.Figure:
     """Lineas por anio para una o varias series."""
     fig, ax = plt.subplots()
+    tabla = tabla.astype("float64")
     for i, columna in enumerate(tabla.columns):
         ax.plot(
             tabla.index.astype(int),
@@ -156,7 +161,8 @@ def histograma(
 ) -> plt.Figure:
     """Histograma con una linea de referencia (por defecto, sobreduracion cero)."""
     fig, ax = plt.subplots()
-    ax.hist(serie.dropna().to_numpy(), bins=bins, color=config.PALETA["primario"], alpha=0.85)
+    valores = serie.dropna().astype("float64").to_numpy()
+    ax.hist(valores, bins=bins, color=config.PALETA["primario"], alpha=0.85)
     if referencia is not None:
         ax.axvline(
             referencia,
@@ -223,7 +229,7 @@ def mapa_calor(
     """Mapa de calor para cruces de dos dimensiones categoricas."""
     fig, ax = plt.subplots(figsize=(config.FIGSIZE[0], config.FIGSIZE[1] + 1))
     sns.heatmap(
-        tabla,
+        tabla.astype("float64"),
         annot=True,
         fmt=formato,
         cmap="YlOrRd",
