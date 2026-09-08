@@ -1,0 +1,10 @@
+* b113334 docs(informe): agrega el informe tecnico de las Fases 1 y 2
+* 82f72f3 style(viz): corrige la acentuacion de las etiquetas de los graficos
+* d64cac0 style(viz): rotula las figuras con formato numerico chileno
+*   64c8e48 merge: integra la rama fase-2/pipeline-datos en main
+|\  
+| * 86aa78d docs(f2): ejecuta los notebooks y versiona figuras, tablas y muestra
+| * 9a58f78 perf(limpieza): normaliza el catalogo de categorias en vez de fila por fila
+| * d41cc30 fix(viz,transformacion): compatibilidad con los tipos anulables de pandas
+| * 1e0a197 docs(f2): notebooks de obtencion, limpieza, transformacion y validacion
+|/  
