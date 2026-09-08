@@ -1,0 +1,30 @@
+# Dependencias del proyecto "Sobreduracion en la titulacion de la educacion
+# superior chilena (2020-2025)".
+#
+# Instalacion (Windows PowerShell):
+#   python -m venv .venv
+#   .\.venv\Scripts\Activate.ps1
+#   pip install -r requirements.txt
+#
+# Las versiones estan fijadas (==) para que el entorno sea identico en
+# cualquier equipo y los resultados sean reproducibles.
+# Entorno de referencia: Python 3.14.7 sobre Windows 11.
+
+# --- Nucleo cientifico -----------------------------------------------------
+numpy==2.5.3
+pandas==3.0.5
+pyarrow==25.0.1          # motor de lectura/escritura Parquet
+
+# --- Visualizacion ---------------------------------------------------------
+matplotlib==3.11.1
+seaborn==0.13.2
+
+# --- Entorno de notebooks --------------------------------------------------
+jupyterlab==4.6.3
+notebook==7.6.2
+ipykernel==7.3.0
+nbformat==5.11.1
+nbconvert==7.17.1
+
+# --- Pruebas ---------------------------------------------------------------
+pytest==9.1.1
