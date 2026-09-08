@@ -1,16 +1,17 @@
-be52b95  2026-09-08  style(viz): corrige la acentuacion de las etiquetas de los graficos
-4954ad7  2026-09-08  style(viz): rotula las figuras con formato numerico chileno
-43035f5  2026-09-08  merge: integra la rama fase-2/pipeline-datos en main
-179960e  2026-09-08  docs(f2): ejecuta los notebooks y versiona figuras, tablas y muestra
-a95bdd3  2026-09-08  perf(limpieza): normaliza el catalogo de categorias en vez de fila por fila
-daf70dd  2026-09-08  fix(viz,transformacion): compatibilidad con los tipos anulables de pandas
-1b4b202  2026-09-08  docs(f2): notebooks de obtencion, limpieza, transformacion y validacion
-5b3cb36  2026-09-08  docs(f1): notebook de definicion del proyecto y entorno reproducible
-cbd0486  2026-09-08  feat(viz,pipeline): estilo unificado de figuras y orquestador ejecutable
-34bac9d  2026-09-08  test: cubre casos normales, limite y excepciones del pipeline
-36126c1  2026-09-08  feat(validacion): motor de reglas orientado a objetos
-ffa9c2e  2026-09-08  feat(transformacion): reconstruye la duracion real y la sobreduracion
-61dd691  2026-09-08  feat(limpieza): convierte codigos centinela del SIES en nulos explicitos
-f57dfd9  2026-09-08  feat(ingesta): consolida los seis anios con lectura por bloques
-522dbb3  2026-09-08  feat(config): centraliza rutas, esquema de datos y parametros
-579ee29  2026-09-08  chore: inicializa repositorio con entorno reproducible
+b113334  2026-09-08  docs(informe): agrega el informe tecnico de las Fases 1 y 2
+82f72f3  2026-09-08  style(viz): corrige la acentuacion de las etiquetas de los graficos
+d64cac0  2026-09-08  style(viz): rotula las figuras con formato numerico chileno
+64c8e48  2026-09-08  merge: integra la rama fase-2/pipeline-datos en main
+86aa78d  2026-09-08  docs(f2): ejecuta los notebooks y versiona figuras, tablas y muestra
+9a58f78  2026-09-08  perf(limpieza): normaliza el catalogo de categorias en vez de fila por fila
+d41cc30  2026-09-08  fix(viz,transformacion): compatibilidad con los tipos anulables de pandas
+1e0a197  2026-09-08  docs(f2): notebooks de obtencion, limpieza, transformacion y validacion
+0dbee5a  2026-09-08  docs(f1): notebook de definicion del proyecto y entorno reproducible
+06cb784  2026-09-08  feat(viz,pipeline): estilo unificado de figuras y orquestador ejecutable
+6c0e566  2026-09-08  test: cubre casos normales, limite y excepciones del pipeline
+280fb6c  2026-09-08  feat(validacion): motor de reglas orientado a objetos
+0e125ee  2026-09-08  feat(transformacion): reconstruye la duracion real y la sobreduracion
+8c36c05  2026-09-08  feat(limpieza): convierte codigos centinela del SIES en nulos explicitos
+304a04e  2026-09-08  feat(ingesta): consolida los seis anios con lectura por bloques
+960617e  2026-09-08  feat(config): centraliza rutas, esquema de datos y parametros
+925d255  2026-09-08  chore: inicializa repositorio con entorno reproducible
