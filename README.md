@@ -55,7 +55,7 @@ proyecto-titulados/
 │   ├── viz.py               Funciones de visualización con estilo unificado
 │   └── pipeline.py          Orquestador ejecutable de todo el flujo
 ├── tests/
-│   └── test_pipeline.py     20 pruebas: casos normales, límite y excepciones
+│   └── test_pipeline.py     22 pruebas: casos normales, límite y excepciones
 ├── data/
 │   ├── raw/                 CSV originales del SIES (no versionados)
 │   ├── interim/             Consolidado en Parquet (no versionado)
@@ -157,13 +157,14 @@ Tiempo aproximado de la primera ejecución completa: **4 a 6 minutos**
 | `dur_total_carr` como referencia teórica | La identidad `estudio + proceso = total` no se cumple en el 33,5 % de los registros. |
 | Filas sin `mrun` excluidas del cotejo de duplicados | Pandas considera iguales dos nulos; incluirlas colapsaría estudiantes distintos. |
 | Umbrales de atípicos en `config.py` | Parámetros explícitos y auditables, no constantes escondidas en el código. |
+| Normalizar el catálogo de categorías y no fila por fila | Reduce el trabajo de 1,7 millones de cadenas por columna a unos pocos miles de valores únicos. |
 
 ## 7. Validación y pruebas
 
 - **Motor de reglas** (`src/validacion.py`): 11 reglas sobre el conjunto
   completo — integridad, dominios, rangos, coherencia aritmética, cobertura
   temporal y duplicados. Resultado: 10 aprobadas, 1 advertencia documentada.
-- **Pruebas automatizadas** (`tests/test_pipeline.py`): 20 pruebas que cubren
+- **Pruebas automatizadas** (`tests/test_pipeline.py`): 22 pruebas que cubren
   casos normales, casos límite y excepciones. Se ejecutan en menos de 2 segundos
   y no dependen de los CSV originales.
 - **Comprobación de determinismo**: el notebook `F2_3` re-ejecuta el pipeline

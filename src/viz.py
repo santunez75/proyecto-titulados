@@ -46,12 +46,28 @@ def guardar(fig: plt.Figure, nombre: str, carpeta: Path | None = None) -> Path:
     return ruta
 
 
+def formato_es(valor: float, formato: str = "{:.1f}") -> str:
+    """Formatea un numero segun la convencion chilena: coma decimal, punto de miles.
+
+    Ejemplo
+    -------
+    >>> formato_es(203598, "{:,.0f}")
+    '203.598'
+    >>> formato_es(2.5, "{:.2f}")
+    '2,50'
+    """
+    texto = formato.format(valor)
+    # str.translate intercambia ambos simbolos en una sola pasada, sin
+    # necesidad de un caracter centinela intermedio.
+    return texto.translate(str.maketrans({",": ".", ".": ","}))
+
+
 def _anotar_barras(ax: plt.Axes, formato: str = "{:.1f}", horizontal: bool = True) -> None:
-    """Escribe el valor al final de cada barra."""
+    """Escribe el valor al final de cada barra, con formato numerico local."""
     for contenedor in ax.containers:
         ax.bar_label(
             contenedor,
-            fmt=lambda v: formato.format(v),
+            fmt=lambda v: formato_es(v, formato),
             padding=3,
             fontsize=9,
             color="#333333",
