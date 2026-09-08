@@ -154,6 +154,23 @@ def test_sentinelas_se_convierten_en_na():
     assert pd.isna(resultado.loc[0, "fec_nac_alu"])
 
 
+def test_normalizacion_de_texto_respeta_nombres_propios():
+    """Los conectores van en minuscula, pero no cuando abren el nombre."""
+    entrada = pd.Series([
+        "  ARTE Y   ARQUITECTURA ",
+        "LA FLORIDA",
+        "LIB. GRAL. B. O'HIGGINS",
+        "UNIVERSIDAD DE LOS ANDES",
+    ])
+    esperado = [
+        "Arte y Arquitectura",
+        "La Florida",
+        "Lib. Gral. B. O'Higgins",
+        "Universidad de los Andes",
+    ]
+    assert limpieza.normalizar_texto(entrada).tolist() == esperado
+
+
 def test_duplicados_sin_mrun_no_se_colapsan():
     """Dos estudiantes sin identificador no son el mismo estudiante."""
     df = pd.DataFrame([_fila(mrun=None), _fila(mrun=None)])

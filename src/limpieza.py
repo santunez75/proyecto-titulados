@@ -145,14 +145,40 @@ def marcar_sentinelas(
     return df
 
 
+# Palabras que no se capitalizan cuando aparecen dentro de un nombre propio,
+# para que "ARTE Y ARQUITECTURA" quede como "Arte y Arquitectura" y no como
+# "Arte Y Arquitectura".
+CONECTORES: tuple[str, ...] = (
+    "y", "e", "o", "u", "de", "del", "la", "las", "el", "los",
+    "en", "con", "para", "por", "al", "a",
+)
+
+
 def normalizar_texto(serie: pd.Series) -> pd.Series:
     """Homogeneiza una columna de texto: sin espacios sobrantes y en Titulo.
 
     Evita que variantes como "SEDE SANTIAGO" y "Sede Santiago " se cuenten como
-    categorias distintas al agrupar.
+    categorias distintas al agrupar, y respeta la ortografia castellana dejando
+    los conectores en minuscula.
+
+    El conector solo se convierte cuando queda rodeado de espacios. Asi los
+    nombres que empiezan por uno de ellos se conservan intactos (la comuna "La
+    Florida" no debe volverse "la Florida") y tampoco se altera la region
+    "O'Higgins", donde la O va seguida de un apostrofo.
+
+    Ejemplo
+    -------
+    >>> normalizar_texto(pd.Series(["  ARTE Y   ARQUITECTURA ", "LA FLORIDA"])).tolist()
+    ['Arte y Arquitectura', 'La Florida']
     """
-    texto = serie.astype("string").str.strip().str.replace(r"\s+", " ", regex=True)
-    return texto.str.title()
+    texto = (
+        serie.astype("string")
+        .str.strip()
+        .str.replace(r"\s+", " ", regex=True)
+        .str.title()
+    )
+    patron = r"(?<= )(" + "|".join(c.capitalize() for c in CONECTORES) + r")(?= )"
+    return texto.str.replace(patron, lambda m: m.group(1).lower(), regex=True)
 
 
 def normalizar_categorias(
@@ -160,7 +186,13 @@ def normalizar_categorias(
     columnas: tuple[str, ...] | None = None,
     bitacora: BitacoraLimpieza | None = None,
 ) -> pd.DataFrame:
-    """Aplica ``normalizar_texto`` a las columnas categoricas del esquema."""
+    """Aplica ``normalizar_texto`` a las columnas categoricas del esquema.
+
+    La normalizacion se ejecuta sobre los **valores unicos** de cada columna y
+    luego se propaga con un mapeo. Aplicar las expresiones regulares fila por
+    fila supondria procesar 1,7 millones de cadenas por columna; hacerlo sobre
+    el catalogo de categorias reduce el trabajo a unos pocos miles de valores.
+    """
     df = df.copy()
     if columnas is None:
         columnas = tuple(
@@ -169,7 +201,9 @@ def normalizar_categorias(
     cambios = 0
     for columna in columnas:
         original = df[columna].astype("string")
-        normalizada = normalizar_texto(original)
+        unicos = pd.Series(original.dropna().unique(), dtype="string")
+        mapa = dict(zip(unicos, normalizar_texto(unicos)))
+        normalizada = original.map(mapa).astype("string")
         cambios += int((original.fillna("") != normalizada.fillna("")).sum())
         df[columna] = normalizada.astype("category")
 
