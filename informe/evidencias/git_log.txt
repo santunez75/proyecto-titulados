@@ -1,3 +1,4 @@
+be52b95  2026-09-08  style(viz): corrige la acentuacion de las etiquetas de los graficos
 4954ad7  2026-09-08  style(viz): rotula las figuras con formato numerico chileno
 43035f5  2026-09-08  merge: integra la rama fase-2/pipeline-datos en main
 179960e  2026-09-08  docs(f2): ejecuta los notebooks y versiona figuras, tablas y muestra

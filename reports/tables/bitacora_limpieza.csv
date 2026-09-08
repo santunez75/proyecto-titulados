@@ -1,5 +1,5 @@
 paso,detalle,filas_antes,filas_despues,filas_afectadas,porcentaje
-consolidado_inicial,Unión de los seis años,1710167,1710167,0,0.0
+consolidado_inicial,Union de los seis anios,1710167,1710167,0,0.0
 marcar_sentinelas,"Codigos SIES y vacios convertidos a NA (anio_ing_carr_ori=62,492, sem_ing_carr_ori=62,492, fec_nac_alu=38, mrun=3,534, cod_carrera=31,629)",1710167,1710167,0,0.0
 normalizar_categorias,"18 columnas homogeneizadas; 8,620,158 celdas modificadas",1710167,1710167,0,0.0
 filtrar_nivel,nivel_global == 'Pregrado',1710167,1311776,398391,23.295
