@@ -156,7 +156,7 @@ def serie_temporal(
             label=str(columna),
             color=list(config.PALETA.values())[i % len(config.PALETA)],
         )
-    ax.set_xlabel("Anio del proceso de titulacion")
+    ax.set_xlabel("Año del proceso de titulación")
     ax.set_ylabel(etiqueta_valor)
     ax.set_title(titulo)
     if tabla.shape[1] > 1:
@@ -185,7 +185,7 @@ def histograma(
             color=config.PALETA["alerta"],
             linestyle="--",
             linewidth=1.5,
-            label="Titulacion en el tiempo teorico",
+            label="Titulación en el tiempo teórico",
         )
         ax.legend()
     ax.set_xlabel(etiqueta_valor)
