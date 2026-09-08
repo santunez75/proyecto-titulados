@@ -1,0 +1,8 @@
+id,hallazgo,magnitud,tratamiento previsto
+H1,Códigos centinela en año y semestre de ingreso,"62,492 registros",Convertir a NA y descartar: sin fecha de inicio no hay duración que medir
+H2,Identificador de estudiante vacío,"3,534 registros","Conservar, pero excluir del cotejo de duplicados"
+H3,Código de carrera vacío,"31,629 registros","Conservar: el análisis usa el nombre y el área, no el código"
+H4,Duraciones teóricas internamente incoherentes,"572,146 registros",Usar dur_total_carr como única referencia teórica
+H5,Posgrado y postítulo mezclados con pregrado,"398,391 registros",Filtrar: planes no comparables en duración
+H6,Categorías de texto con formato heterogéneo,18 columnas categóricas,Normalizar espacios y capitalización antes de agrupar
+H7,Ausencia de la variable de duración real,no existe en la fuente,Derivarla desde ingreso y fecha de titulación
