@@ -64,7 +64,10 @@ proyecto-titulados/
 │   ├── figures/             Figuras generadas por los notebooks
 │   └── tables/              Tablas de resultados en CSV
 ├── docs/                    Esquema de registro oficial del SIES
-├── informe/                 Informe técnico de las Fases 1 y 2
+├── informe/
+│   ├── f1_s01_evaluacion_entregable_grupox.pdf   Informe técnico (entregable)
+│   ├── f1_s01_evaluacion_entregable_grupox.docx  Fuente editable del informe
+│   └── evidencias/          Salidas de pytest, git log y pipeline
 ├── requirements.txt         Dependencias con versiones fijadas
 └── README.md
 ```
@@ -183,7 +186,13 @@ python -m pytest tests/ -v
 | F3 | Modelación de la sobreduración | Proyectada |
 | F4 | Reporte analítico final | Proyectada |
 
-## 9. Créditos y licencia
+## 9. Informe técnico
+
+El informe de las Fases 1 y 2 está en `informe/f1_s01_evaluacion_entregable_grupox.pdf`
+(44 páginas). Todas sus cifras, tablas y figuras provienen de los notebooks de este
+repositorio y se regeneran ejecutando el pipeline.
+
+## 10. Créditos y licencia
 
 Datos publicados por el **Servicio de Información de Educación Superior (SIES)**
 del Ministerio de Educación de Chile bajo licencia de datos abiertos. El código
