@@ -20,7 +20,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src import config, ingesta, limpieza, transformacion, validacion  # noqa: E402
+from src import config, ingesta, limpieza, transformacion, validacion, viz  # noqa: E402
 
 
 # --------------------------------------------------------------------------
@@ -270,6 +270,13 @@ def test_tabla_agregada_respeta_minimo_de_casos():
     assert transformacion.tabla_agregada(df, "area_conocimiento", minimo_casos=30).empty
     resultado = transformacion.tabla_agregada(df, "area_conocimiento", minimo_casos=5)
     assert resultado.loc[0, "titulados"] == 10
+
+
+def test_formato_numerico_chileno():
+    """Los graficos deben rotular con coma decimal y punto de miles."""
+    assert viz.formato_es(203_598, "{:,.0f}") == "203.598"
+    assert viz.formato_es(2.5, "{:.2f}") == "2,50"
+    assert viz.formato_es(5.77, "{:.1f}") == "5,8"
 
 
 def test_configuracion_expone_versiones():

@@ -1,0 +1,24 @@
+[pipeline] Consolidado cargado: 1,710,167 filas
+                       paso                                                                                                                                    detalle  filas_antes  filas_despues  filas_afectadas  porcentaje
+        consolidado_inicial                                                                                                                    Union de los seis anios      1710167        1710167                0       0.000
+          marcar_sentinelas Codigos SIES y vacios convertidos a NA (anio_ing_carr_ori=62,492, sem_ing_carr_ori=62,492, fec_nac_alu=38, mrun=3,534, cod_carrera=31,629)      1710167        1710167                0       0.000
+      normalizar_categorias                                                                                   18 columnas homogeneizadas; 8,620,158 celdas modificadas      1710167        1710167                0       0.000
+              filtrar_nivel                                                                                                                 nivel_global == 'Pregrado'      1710167        1311776           398391      23.295
+        eliminar_duplicados                                                  Clave: cat_periodo + mrun + cod_carrera + fecha_obtencion_titulo (excluye filas sin mrun)      1311776        1311704               72       0.005
+      descartar_sin_insumos                                                      Filas sin anio_ing_carr_ori, sem_ing_carr_ori, fecha_obtencion_titulo, dur_total_carr      1311704        1249879            61825       4.713
+construir_dataset_analitico                                                                               Derivacion de duracion real, sobreduracion, edad y etiquetas      1249879        1249879                0       0.000
+           filtrar_atipicos                                                                                                    duracion=3,100, edad=20, teorica_nula=0      1249879        1246760             3119       0.250
+                    regla   estado                                                                                          detalle
+         dataset_no_vacio     PASA                                                         1,246,760 filas en el dataset analitico.
+       columnas_derivadas     PASA                                                         Todas las variables derivadas presentes.
+       sin_nulos_criticos     PASA                                                              Sin nulos en las columnas criticas.
+      rango_duracion_real     PASA                                     Duracion real dentro de [1, 40] semestres; 0 fuera de rango.
+               rango_edad     PASA                                         Edad de titulacion dentro de [15, 90]; 0 fuera de rango.
+           dominio_genero     PASA                                                          Valores observados: ['Hombre', 'Mujer']
+    coherencia_aritmetica     PASA                sobreduracion + duracion teorica = duracion real en 1,246,760 de 1,246,760 filas.
+          cobertura_anios     PASA                                            Anios presentes: [2020, 2021, 2022, 2023, 2024, 2025]
+ titulo_posterior_ingreso     PASA                                                         0 titulos con fecha anterior al ingreso.
+           sin_duplicados     PASA                    0 duplicados sobre cat_periodo + mrun + cod_carrera + fecha_obtencion_titulo.
+periodo_igual_anio_titulo ADVIERTE 230,563 filas (18.49%) donde el anio del proceso no coincide con el anio de la fecha del titulo.
+10 reglas aprobadas, 1 advertencias, 0 fallas criticas.
+[pipeline] Dataset analitico: D:\IA Development\proyecto-titulados\data\processed\titulados_pregrado_analitico.parquet (33.9 MB)
