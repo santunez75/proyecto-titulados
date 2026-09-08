@@ -1,0 +1,12 @@
+regla,descripcion,severidad,estado,detalle
+dataset_no_vacio,El dataset contiene registros.,critica,PASA,"1,246,760 filas en el dataset analitico."
+columnas_derivadas,Existen todas las variables construidas en la transformacion.,critica,PASA,Todas las variables derivadas presentes.
+sin_nulos_criticos,Las columnas indispensables no tienen valores faltantes.,critica,PASA,Sin nulos en las columnas criticas.
+rango_duracion_real,La duracion real reconstruida es plausible.,critica,PASA,"Duracion real dentro de [1, 40] semestres; 0 fuera de rango."
+rango_edad,La edad de titulacion es plausible.,critica,PASA,"Edad de titulacion dentro de [15, 90]; 0 fuera de rango."
+dominio_genero,La variable genero solo toma los valores del esquema SIES.,critica,PASA,"Valores observados: ['Hombre', 'Mujer']"
+coherencia_aritmetica,La sobreduracion es consistente con sus componentes.,critica,PASA,"sobreduracion + duracion teorica = duracion real en 1,246,760 de 1,246,760 filas."
+cobertura_anios,Estan representados los seis anios de la ventana de analisis.,critica,PASA,"Anios presentes: [2020, 2021, 2022, 2023, 2024, 2025]"
+titulo_posterior_ingreso,Ningun titulo antecede al ingreso a la carrera.,critica,PASA,0 titulos con fecha anterior al ingreso.
+sin_duplicados,No hay registros repetidos de estudiante-carrera-fecha.,critica,PASA,0 duplicados sobre cat_periodo + mrun + cod_carrera + fecha_obtencion_titulo.
+periodo_igual_anio_titulo,El anio del proceso coincide con el anio de la fecha del titulo.,advertencia,ADVIERTE,"230,563 filas (18.49%) donde el anio del proceso no coincide con el anio de la fecha del titulo."

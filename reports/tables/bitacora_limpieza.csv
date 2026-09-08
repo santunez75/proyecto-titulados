@@ -1,0 +1,9 @@
+paso,detalle,filas_antes,filas_despues,filas_afectadas,porcentaje
+consolidado_inicial,Unión de los seis años,1710167,1710167,0,0.0
+marcar_sentinelas,"Codigos SIES y vacios convertidos a NA (anio_ing_carr_ori=62,492, sem_ing_carr_ori=62,492, fec_nac_alu=38, mrun=3,534, cod_carrera=31,629)",1710167,1710167,0,0.0
+normalizar_categorias,"18 columnas homogeneizadas; 8,620,158 celdas modificadas",1710167,1710167,0,0.0
+filtrar_nivel,nivel_global == 'Pregrado',1710167,1311776,398391,23.295
+eliminar_duplicados,Clave: cat_periodo + mrun + cod_carrera + fecha_obtencion_titulo (excluye filas sin mrun),1311776,1311704,72,0.005
+descartar_sin_insumos,"Filas sin anio_ing_carr_ori, sem_ing_carr_ori, fecha_obtencion_titulo, dur_total_carr",1311704,1249879,61825,4.713
+construir_dataset_analitico,"Derivacion de duracion real, sobreduracion, edad y etiquetas",1249879,1249879,0,0.0
+filtrar_atipicos,"duracion=3,100, edad=20, teorica_nula=0",1249879,1246760,3119,0.25

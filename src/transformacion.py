@@ -132,13 +132,17 @@ def clasificar_rezago(sobreduracion: pd.Series) -> pd.Series:
 
 
 def etiquetar_dimensiones(df: pd.DataFrame) -> pd.DataFrame:
-    """Agrega etiquetas legibles para las variables codificadas."""
+    """Agrega etiquetas legibles para las variables codificadas.
+
+    Las columnas opcionales se derivan solo si existen, de modo que la funcion
+    tambien opere sobre subconjuntos reducidos (por ejemplo, los DataFrame
+    minimos usados en las pruebas y en las demostraciones de los notebooks).
+    """
     df = df.copy()
-    df["genero"] = (
-        df["gen_alu"].map(config.MAPA_GENERO).astype("category")
-    )
+    df["genero"] = df["gen_alu"].map(config.MAPA_GENERO).astype("category")
     df["cohorte_ingreso"] = df["anio_ing_carr_ori"].astype("Int16")
-    df["es_no_presencial"] = (df["modalidad"] == "No Presencial")
+    if "modalidad" in df.columns:
+        df["es_no_presencial"] = df["modalidad"] == "No Presencial"
     return df
 
 
