@@ -1,9 +1,9 @@
 # Sobreduración en la titulación de la educación superior chilena (2020–2025)
 
-Proyecto transversal del curso **«Nombre del curso» («Código»)** — Fases 1 y 2.
+Proyecto transversal del curso **Programación para la Ciencia de Datos (202682.1927)** — Fases 1 y 2.
 
-**Equipo:** «Integrante 1», «Integrante 2», «Integrante 3» · **Grupo:** «N»
-**Docente:** «Nombre del docente» · **Institución:** Universidad Andrés Bello
+**Autor:** Sebastian Antunez Noguera
+**Docente:** Omar Salinas · **Programa:** Magíster en Ciencia de Datos e Inteligencia Artificial · Universidad Andrés Bello
 
 ---
 
@@ -63,10 +63,12 @@ proyecto-titulados/
 ├── reports/
 │   ├── figures/             Figuras generadas por los notebooks
 │   └── tables/              Tablas de resultados en CSV
-├── docs/                    Esquema de registro oficial del SIES
+├── docs/
+│   ├── ER titulados ... .pdf   Esquema de registro oficial del SIES
+│   └── mapa_conceptual/     Mapa conceptual técnico de la Fase 1 (SVG, PNG, PDF + generador)
 ├── informe/
-│   ├── f1_s01_evaluacion_entregable_grupox.pdf   Informe técnico (entregable)
-│   ├── f1_s01_evaluacion_entregable_grupox.docx  Fuente editable del informe
+│   ├── Sumativa1_Fase1_2_Sebastian_Antunez.pdf   Informe técnico entregado (Fases 1 y 2)
+│   ├── Sumativa1_Fase1_2_Sebastian_Antunez.docx  Fuente editable del informe
 │   └── evidencias/          Salidas de pytest, git log y pipeline
 ├── requirements.txt         Dependencias con versiones fijadas
 └── README.md
@@ -100,7 +102,7 @@ proyecto-titulados/
 Requiere **Python 3.11 o superior** (entorno de referencia: 3.14.7).
 
 ```powershell
-git clone «URL del repositorio»
+git clone https://github.com/santunez75/proyecto-titulados.git
 cd proyecto-titulados
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
@@ -188,7 +190,7 @@ python -m pytest tests/ -v
 
 ## 9. Informe técnico
 
-El informe de las Fases 1 y 2 está en `informe/f1_s01_evaluacion_entregable_grupox.pdf`
+El informe de las Fases 1 y 2 está en `informe/Sumativa1_Fase1_2_Sebastian_Antunez.pdf`
 (44 páginas). Todas sus cifras, tablas y figuras provienen de los notebooks de este
 repositorio y se regeneran ejecutando el pipeline.
 
