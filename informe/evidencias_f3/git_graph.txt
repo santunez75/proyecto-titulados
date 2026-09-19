@@ -1,14 +1,14 @@
-* ac7a60a docs(f3): notebook del nucleo algoritmico ejecutado de corrido
-* b61936e test(nucleo): 51 pruebas de casos normales, limite y excepciones
-* cd3227f feat(nucleo): preparacion, modelos por descenso de gradiente y fachada
-* 843231e feat(nucleo): modelo de dominio orientado a objetos
-* e83deaf feat(nucleo): algoritmos estructurados y recursivos con analisis de complejidad
-* c5146f0 docs: agrega CLAUDE.md con el contexto del proyecto para cualquier equipo
-* 5d05644 chore: prepara la rama de la Fase 3 y sanea el repositorio
-* 450e63f Reejecucion de notebook en el equipo de trabajo con documento pdf
-* 2c59f0e Reejecucion de notebook en el equipo de trabajo con Jupyter LAB
-* fcecd36 Reejecucion de notebook en el equipo de trabajo
-* 503baad docs: actualiza el informe y el notebook F1 tras corregir la autoria
-* b113334 docs(informe): agrega el informe tecnico de las Fases 1 y 2
-* 82f72f3 style(viz): corrige la acentuacion de las etiquetas de los graficos
-* d64cac0 style(viz): rotula las figuras con formato numerico chileno
+* 28eb1d3 docs(f3): agrega el PDF del informe con la fecha de entrega
+* 6d5b2a5 docs(f3): Primer Informe F3
+* 236c42d docs(f3): informe tecnico de la Fase 3 y evidencias de ejecucion
+* adc443f docs(f3): notebook del nucleo algoritmico ejecutado de corrido
+* 3fbf510 test(nucleo): 51 pruebas de casos normales, limite y excepciones
+* 1fef35d feat(nucleo): preparacion, modelos por descenso de gradiente y fachada
+* 386d50f feat(nucleo): modelo de dominio orientado a objetos
+* 25ed65c feat(nucleo): algoritmos estructurados y recursivos con analisis de complejidad
+* bff6327 docs: agrega CLAUDE.md con el contexto del proyecto para cualquier equipo
+* 76867c7 chore: prepara la rama de la Fase 3 y sanea el repositorio
+* 807ad02 Reejecucion de notebook en el equipo de trabajo con documento pdf
+* 9d8c578 Reejecucion de notebook en el equipo de trabajo con Jupyter LAB
+* 75b8d4b Reejecucion de notebook en el equipo de trabajo
+* 5d76ade docs: actualiza el informe y el notebook F1 tras corregir la autoria

@@ -1,28 +1,31 @@
-ac7a60a  2026-09-19  docs(f3): notebook del nucleo algoritmico ejecutado de corrido
-b61936e  2026-09-19  test(nucleo): 51 pruebas de casos normales, limite y excepciones
-cd3227f  2026-09-19  feat(nucleo): preparacion, modelos por descenso de gradiente y fachada
-843231e  2026-09-19  feat(nucleo): modelo de dominio orientado a objetos
-e83deaf  2026-09-19  feat(nucleo): algoritmos estructurados y recursivos con analisis de complejidad
-c5146f0  2026-09-15  docs: agrega CLAUDE.md con el contexto del proyecto para cualquier equipo
-5d05644  2026-09-15  chore: prepara la rama de la Fase 3 y sanea el repositorio
-450e63f  2026-09-09  Reejecucion de notebook en el equipo de trabajo con documento pdf
-2c59f0e  2026-09-09  Reejecucion de notebook en el equipo de trabajo con Jupyter LAB
-fcecd36  2026-09-09  Reejecucion de notebook en el equipo de trabajo
-503baad  2026-09-08  docs: actualiza el informe y el notebook F1 tras corregir la autoria
-b113334  2026-09-08  docs(informe): agrega el informe tecnico de las Fases 1 y 2
-82f72f3  2026-09-08  style(viz): corrige la acentuacion de las etiquetas de los graficos
-d64cac0  2026-09-08  style(viz): rotula las figuras con formato numerico chileno
-64c8e48  2026-09-08  merge: integra la rama fase-2/pipeline-datos en main
-86aa78d  2026-09-08  docs(f2): ejecuta los notebooks y versiona figuras, tablas y muestra
-9a58f78  2026-09-08  perf(limpieza): normaliza el catalogo de categorias en vez de fila por fila
-d41cc30  2026-09-08  fix(viz,transformacion): compatibilidad con los tipos anulables de pandas
-1e0a197  2026-09-08  docs(f2): notebooks de obtencion, limpieza, transformacion y validacion
-0dbee5a  2026-09-08  docs(f1): notebook de definicion del proyecto y entorno reproducible
-06cb784  2026-09-08  feat(viz,pipeline): estilo unificado de figuras y orquestador ejecutable
-6c0e566  2026-09-08  test: cubre casos normales, limite y excepciones del pipeline
-280fb6c  2026-09-08  feat(validacion): motor de reglas orientado a objetos
-0e125ee  2026-09-08  feat(transformacion): reconstruye la duracion real y la sobreduracion
-8c36c05  2026-09-08  feat(limpieza): convierte codigos centinela del SIES en nulos explicitos
-304a04e  2026-09-08  feat(ingesta): consolida los seis anios con lectura por bloques
-960617e  2026-09-08  feat(config): centraliza rutas, esquema de datos y parametros
-925d255  2026-09-08  chore: inicializa repositorio con entorno reproducible
+28eb1d3  2026-09-19  docs(f3): agrega el PDF del informe con la fecha de entrega
+6d5b2a5  2026-09-19  docs(f3): Primer Informe F3
+236c42d  2026-09-19  docs(f3): informe tecnico de la Fase 3 y evidencias de ejecucion
+adc443f  2026-09-19  docs(f3): notebook del nucleo algoritmico ejecutado de corrido
+3fbf510  2026-09-19  test(nucleo): 51 pruebas de casos normales, limite y excepciones
+1fef35d  2026-09-19  feat(nucleo): preparacion, modelos por descenso de gradiente y fachada
+386d50f  2026-09-19  feat(nucleo): modelo de dominio orientado a objetos
+25ed65c  2026-09-19  feat(nucleo): algoritmos estructurados y recursivos con analisis de complejidad
+bff6327  2026-09-15  docs: agrega CLAUDE.md con el contexto del proyecto para cualquier equipo
+76867c7  2026-09-15  chore: prepara la rama de la Fase 3 y sanea el repositorio
+807ad02  2026-09-09  Reejecucion de notebook en el equipo de trabajo con documento pdf
+9d8c578  2026-09-09  Reejecucion de notebook en el equipo de trabajo con Jupyter LAB
+75b8d4b  2026-09-09  Reejecucion de notebook en el equipo de trabajo
+5d76ade  2026-09-08  docs: actualiza el informe y el notebook F1 tras corregir la autoria
+004de50  2026-09-08  docs(informe): agrega el informe tecnico de las Fases 1 y 2
+b70eaad  2026-09-08  style(viz): corrige la acentuacion de las etiquetas de los graficos
+4418158  2026-09-08  style(viz): rotula las figuras con formato numerico chileno
+b1021bc  2026-09-08  merge: integra la rama fase-2/pipeline-datos en main
+fc75c8f  2026-09-08  docs(f2): ejecuta los notebooks y versiona figuras, tablas y muestra
+5e07669  2026-09-08  perf(limpieza): normaliza el catalogo de categorias en vez de fila por fila
+f698c37  2026-09-08  fix(viz,transformacion): compatibilidad con los tipos anulables de pandas
+8334b7f  2026-09-08  docs(f2): notebooks de obtencion, limpieza, transformacion y validacion
+d070aef  2026-09-08  docs(f1): notebook de definicion del proyecto y entorno reproducible
+997c0d1  2026-09-08  feat(viz,pipeline): estilo unificado de figuras y orquestador ejecutable
+6d2bb5f  2026-09-08  test: cubre casos normales, limite y excepciones del pipeline
+2b8a0f2  2026-09-08  feat(validacion): motor de reglas orientado a objetos
+a90d244  2026-09-08  feat(transformacion): reconstruye la duracion real y la sobreduracion
+bf45180  2026-09-08  feat(limpieza): convierte codigos centinela del SIES en nulos explicitos
+c8bb51e  2026-09-08  feat(ingesta): consolida los seis anios con lectura por bloques
+02cd383  2026-09-08  feat(config): centraliza rutas, esquema de datos y parametros
+8d219de  2026-09-08  chore: inicializa repositorio con entorno reproducible
