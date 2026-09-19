@@ -1,0 +1,6 @@
+algoritmo,cota_teorica,exponente_empirico,n_min,n_max
+agrupar_media O(n),O(n),1.0,20000,640000
+ordenar_merge O(n log n),O(n log n),1.08,20000,640000
+quickselect O(n),O(n),1.22,20000,640000
+sorted (C),(C),1.02,20000,640000
+ordenar_insercion O(n²),O(n²),2.04,500,4000

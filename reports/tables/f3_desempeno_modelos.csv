@@ -1,0 +1,6 @@
+,rmse,mae,r2,exactitud,precision,sensibilidad,f1,vp,vn,fp,fn
+lineal_gd_entrenamiento,3.6065,2.3824,0.0886,,,,,,,,
+lineal_gd_prueba,3.5899,2.3799,0.0854,,,,,,,,
+lineal_cerrada_prueba,3.5899,2.3799,0.0854,,,,,,,,
+logistica_entrenamiento,,,,0.8078,0.4385,0.0369,0.0681,1124.0,128131.0,1439.0,29306.0
+logistica_prueba,,,,0.8121,0.4496,0.0401,0.0737,299.0,32183.0,366.0,7152.0

@@ -1,0 +1,12 @@
+implementacion,n,segundos,us_por_elemento,memoria_pico_kb,repeticiones,razon_vs_mejor,operacion
+agrupar_media O(n),200000,0.044899,0.2245,0.7,3,5.5,agregación
+agrupar_media_ingenua O(n·k),200000,0.084683,0.4234,603.9,3,10.4,agregación
+pandas groupby,200000,0.008149,0.0407,3132.6,3,1.0,agregación
+numpy.sort,200000,0.00868,0.0434,3127.8,3,1.0,ordenamiento
+sorted (Timsort en C),200000,0.012112,0.0606,2343.6,3,1.4,ordenamiento
+ordenar_merge O(n log n),200000,0.576182,2.8809,3250.9,3,66.4,ordenamiento
+numpy.median,200000,0.009432,0.0472,3128.2,3,1.0,mediana
+mediana_ordenando O(n log n),200000,0.012155,0.0608,2343.6,3,1.3,mediana
+quickselect O(n),200000,0.053758,0.2688,4422.2,3,5.7,mediana
+busqueda_binaria O(log n),200000,1e-06,0.0,0.0,5,1.0,búsqueda
+busqueda_lineal O(n),200000,0.006516,0.0326,0.1,5,6516.0,búsqueda

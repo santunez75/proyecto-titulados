@@ -1,0 +1,68 @@
+nivel,nombre,ruta,profundidad,total,sobreduracion_media,tasa_oportuna_pct
+sistema,Sistema,Sistema,0,300000,2.769,18.935
+tipo_institucion,Universidades,Sistema > Universidades,1,137436,3.318,12.811
+tipo_institucion,Centros de Formación Técnica,Sistema > Centros de Formación Técnica,1,51515,2.827,13.977
+tipo_institucion,Institutos Profesionales,Sistema > Institutos Profesionales,1,111049,2.063,28.814
+institucion,Universidad Bolivariana,Sistema > Universidades > Universidad Bolivariana,2,1019,5.793,9.912
+institucion,Universidad Tecnica Federico Santa Maria,Sistema > Universidades > Universidad Tecnica Federico Santa Maria,2,3809,5.43,2.652
+institucion,Universidad Tecnologica de Chile Inacap,Sistema > Universidades > Universidad Tecnologica de Chile Inacap,2,6795,4.847,2.575
+institucion,Universidad de la Serena,Sistema > Universidades > Universidad de la Serena,2,1449,4.79,3.934
+institucion,Cft Inacap,Sistema > Centros de Formación Técnica > Cft Inacap,2,20366,4.605,1.925
+institucion,Universidad de Antofagasta,Sistema > Universidades > Universidad de Antofagasta,2,1574,4.282,4.13
+institucion,Universidad de Valparaiso,Sistema > Universidades > Universidad de Valparaiso,2,3066,4.198,2.838
+institucion,Universidad de Tarapaca,Sistema > Universidades > Universidad de Tarapaca,2,1781,4.088,6.12
+institucion,Universidad de Playa Ancha de Ciencias de la Educacion,Sistema > Universidades > Universidad de Playa Ancha de Ciencias de la Educacion,2,1665,4.06,1.021
+institucion,Universidad de Chile,Sistema > Universidades > Universidad de Chile,2,6485,4.022,6.939
+institucion,Universidad Mayor,Sistema > Universidades > Universidad Mayor,2,3739,4.014,9.762
+institucion,Universidad Catolica del Norte,Sistema > Universidades > Universidad Catolica del Norte,2,2094,4.003,6.543
+institucion,Universidad de Atacama,Sistema > Universidades > Universidad de Atacama,2,1800,3.992,15.889
+institucion,Universidad de los Lagos,Sistema > Universidades > Universidad de los Lagos,2,2219,3.937,12.934
+institucion,Universidad Austral de Chile,Sistema > Universidades > Universidad Austral de Chile,2,2887,3.896,5.161
+institucion,Ip Inacap,Sistema > Institutos Profesionales > Ip Inacap,2,10265,3.824,1.705
+institucion,Universidad Tecnologica Metropolitana,Sistema > Universidades > Universidad Tecnologica Metropolitana,2,1646,3.759,9.781
+institucion,Universidad de Concepcion,Sistema > Universidades > Universidad de Concepcion,2,4572,3.702,8.246
+institucion,Universidad Santo Tomas,Sistema > Universidades > Universidad Santo Tomas,2,5447,3.693,2.515
+institucion,Universidad Academia de Humanismo Cristiano,Sistema > Universidades > Universidad Academia de Humanismo Cristiano,2,1111,3.631,18.182
+institucion,Universidad Adolfo Ibañez,Sistema > Universidades > Universidad Adolfo Ibañez,2,2448,3.624,2.9
+institucion,Universidad Central de Chile,Sistema > Universidades > Universidad Central de Chile,2,2529,3.497,5.061
+institucion,Universidad del Bio-Bio,Sistema > Universidades > Universidad del Bio-Bio,2,2585,3.456,2.05
+institucion,Universidad Catolica de Temuco,Sistema > Universidades > Universidad Catolica de Temuco,2,2180,3.312,27.018
+institucion,Universidad de Talca,Sistema > Universidades > Universidad de Talca,2,1897,3.308,8.698
+institucion,Universidad Alberto Hurtado,Sistema > Universidades > Universidad Alberto Hurtado,2,1168,3.265,6.421
+institucion,Pontificia Universidad Catolica de Valparaiso,Sistema > Universidades > Pontificia Universidad Catolica de Valparaiso,2,3315,3.176,11.493
+institucion,Universidad de Santiago de Chile,Sistema > Universidades > Universidad de Santiago de Chile,2,4607,3.115,10.18
+institucion,Universidad Diego Portales,Sistema > Universidades > Universidad Diego Portales,2,3465,3.073,1.876
+institucion,Universidad de Viña del Mar,Sistema > Universidades > Universidad de Viña del Mar,2,1552,2.966,26.095
+institucion,Universidad Bernardo O'Higgins,Sistema > Universidades > Universidad Bernardo O'Higgins,2,1458,2.947,9.534
+institucion,Ip Ipg,Sistema > Institutos Profesionales > Ip Ipg,2,1440,2.934,12.431
+institucion,Universidad San Sebastian,Sistema > Universidades > Universidad San Sebastian,2,5638,2.893,17.63
+institucion,Universidad de los Andes,Sistema > Universidades > Universidad de los Andes,2,1797,2.802,21.48
+institucion,Universidad Andres Bello,Sistema > Universidades > Universidad Andres Bello,2,8966,2.77,14.722
+institucion,Pontificia Universidad Catolica de Chile,Sistema > Universidades > Pontificia Universidad Catolica de Chile,2,6017,2.542,17.002
+institucion,Universidad Finis Terrae,Sistema > Universidades > Universidad Finis Terrae,2,1486,2.485,18.237
+institucion,Universidad del Desarrollo,Sistema > Universidades > Universidad del Desarrollo,2,3030,2.398,13.993
+institucion,Universidad Catolica de la Santisima Concepcion,Sistema > Universidades > Universidad Catolica de la Santisima Concepcion,2,3824,2.285,19.953
+institucion,Universidad Catolica del Maule,Sistema > Universidades > Universidad Catolica del Maule,2,1907,2.25,9.019
+institucion,Ip de Chile,Sistema > Institutos Profesionales > Ip de Chile,2,5479,2.245,23.928
+institucion,Ip Providencia,Sistema > Institutos Profesionales > Ip Providencia,2,2472,2.23,11.974
+institucion,Ip Instituto de Estudios Bancarios Guillermo Subercaseaux,Sistema > Institutos Profesionales > Ip Instituto de Estudios Bancarios Guillermo Subercaseaux,2,1721,2.217,15.398
+institucion,Ip Duoc Uc,Sistema > Institutos Profesionales > Ip Duoc Uc,2,29448,2.211,28.294
+institucion,Universidad de las Americas,Sistema > Universidades > Universidad de las Americas,2,5152,2.198,21.623
+institucion,Ip Santo Tomas,Sistema > Institutos Profesionales > Ip Santo Tomas,2,6233,2.132,13.894
+institucion,Universidad Autonoma de Chile,Sistema > Universidades > Universidad Autonoma de Chile,2,5382,2.069,35.637
+institucion,Universidad de la Frontera,Sistema > Universidades > Universidad de la Frontera,2,1850,2.023,28.703
+institucion,Cft Santo Tomas,Sistema > Centros de Formación Técnica > Cft Santo Tomas,2,12921,2.021,8.792
+institucion,Ip Dr. Virginio Gomez G.,Sistema > Institutos Profesionales > Ip Dr. Virginio Gomez G.,2,3067,2.019,6.717
+institucion,Ip Iacc,Sistema > Institutos Profesionales > Ip Iacc,2,6982,1.903,23.417
+institucion,Cft Ceduc - Ucn,Sistema > Centros de Formación Técnica > Cft Ceduc - Ucn,2,1743,1.884,22.433
+institucion,Universidad Arturo Prat,Sistema > Universidades > Universidad Arturo Prat,2,2698,1.789,40.474
+institucion,Ip Latinoamericano de Comercio Exterior - Iplacex,Sistema > Institutos Profesionales > Ip Latinoamericano de Comercio Exterior - Iplacex,2,5364,1.76,32.438
+institucion,Cft Pucv,Sistema > Centros de Formación Técnica > Cft Pucv,2,2094,1.598,16.332
+institucion,Universidad Catolica Cardenal Raul Silva Henriquez,Sistema > Universidades > Universidad Catolica Cardenal Raul Silva Henriquez,2,1403,1.545,41.554
+institucion,Ip Aiep,Sistema > Institutos Profesionales > Ip Aiep,2,28771,1.475,46.203
+institucion,Cft de Enac,Sistema > Centros de Formación Técnica > Cft de Enac,2,2804,1.285,9.914
+institucion,Ip Esucomex,Sistema > Institutos Profesionales > Ip Esucomex,2,1053,1.265,36.182
+institucion,Ip los Leones,Sistema > Institutos Profesionales > Ip los Leones,2,1763,1.263,14.237
+institucion,Ip del Valle Central,Sistema > Institutos Profesionales > Ip del Valle Central,2,2246,1.062,60.107
+institucion,Cft San Agustin,Sistema > Centros de Formación Técnica > Cft San Agustin,2,2407,0.877,47.445
+institucion,Cft Cenco,Sistema > Centros de Formación Técnica > Cft Cenco,2,1751,-0.075,82.581
