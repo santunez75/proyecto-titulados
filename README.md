@@ -1,9 +1,9 @@
 # Sobreduración en la titulación de la educación superior chilena (2020–2025)
 
-Proyecto transversal del curso **«Nombre del curso» («Código»)** — Fases 1 y 2.
+Proyecto transversal del curso **Programación para la Ciencia de Datos (202682.1927)** — Fases 1, 2 y 3.
 
-**Equipo:** «Integrante 1», «Integrante 2», «Integrante 3» · **Grupo:** «N»
-**Docente:** «Nombre del docente» · **Institución:** Universidad Andrés Bello
+**Autor:** Sebastian Antunez Noguera
+**Docente:** Omar Salinas · **Programa:** Magíster en Ciencia de Datos e Inteligencia Artificial · Universidad Andrés Bello
 
 ---
 
@@ -46,6 +46,8 @@ proyecto-titulados/
 │   ├── F2_1_Obtencion_Exploracion.ipynb    Consolidación y exploración (EDA)
 │   ├── F2_2_Limpieza_Transformacion.ipynb  Depuración y variables derivadas
 │   └── F2_3_Validacion_Analisis.ipynb      Validación técnica y resultados
+├── F3/
+│   └── F3_Nucleo_Algoritmico.ipynb  Algoritmos, complejidad, POO y modelación (Fase 3)
 ├── src/
 │   ├── config.py            Rutas, esquema de datos y constantes
 │   ├── ingesta.py           Lectura por bloques y consolidación en Parquet
@@ -53,9 +55,20 @@ proyecto-titulados/
 │   ├── transformacion.py    Duración real, sobreduración y agregaciones
 │   ├── validacion.py        Motor de reglas de validación
 │   ├── viz.py               Funciones de visualización con estilo unificado
-│   └── pipeline.py          Orquestador ejecutable de todo el flujo
+│   ├── pipeline.py          Orquestador ejecutable de todo el flujo
+│   └── nucleo/              Núcleo algorítmico de la Fase 3
+│       ├── algoritmos.py    Agregación O(n), merge sort, quickselect, búsqueda binaria (recursivos)
+│       ├── benchmark.py     timeit + tracemalloc, curvas de escalamiento, exponente empírico
+│       ├── dominio.py       Clases Titulado y Cohorte (encapsulamiento, protocolo de secuencia)
+│       ├── metricas.py      Metrica abstracta y subclases (patrón Strategy)
+│       ├── jerarquia.py     NodoJerarquia recursivo con memorización (patrón Composite)
+│       ├── preparacion.py   Transformador → escaladores y one-hot (herencia); partición
+│       ├── modelos.py       Regresión lineal y logística por gradiente (Template Method)
+│       ├── fachada.py       NucleoAnalitico (patrón Facade)
+│       └── validacion_f3.py Reglas de coherencia del núcleo (reutiliza src/validacion)
 ├── tests/
-│   └── test_pipeline.py     22 pruebas: casos normales, límite y excepciones
+│   ├── test_pipeline.py     22 pruebas del pipeline de F2
+│   └── test_nucleo.py       51 pruebas del núcleo de F3 (normales, límite, excepciones)
 ├── data/
 │   ├── raw/                 CSV originales del SIES (no versionados)
 │   ├── interim/             Consolidado en Parquet (no versionado)
@@ -63,10 +76,12 @@ proyecto-titulados/
 ├── reports/
 │   ├── figures/             Figuras generadas por los notebooks
 │   └── tables/              Tablas de resultados en CSV
-├── docs/                    Esquema de registro oficial del SIES
+├── docs/
+│   ├── ER titulados ... .pdf   Esquema de registro oficial del SIES
+│   └── mapa_conceptual/     Mapa conceptual técnico de la Fase 1 (SVG, PNG, PDF + generador)
 ├── informe/
-│   ├── f1_s01_evaluacion_entregable_grupox.pdf   Informe técnico (entregable)
-│   ├── f1_s01_evaluacion_entregable_grupox.docx  Fuente editable del informe
+│   ├── Sumativa1_Fase1_2_Sebastian_Antunez.pdf   Informe técnico entregado (Fases 1 y 2)
+│   ├── Sumativa1_Fase1_2_Sebastian_Antunez.docx  Fuente editable del informe
 │   └── evidencias/          Salidas de pytest, git log y pipeline
 ├── requirements.txt         Dependencias con versiones fijadas
 └── README.md
@@ -100,7 +115,7 @@ proyecto-titulados/
 Requiere **Python 3.11 o superior** (entorno de referencia: 3.14.7).
 
 ```powershell
-git clone «URL del repositorio»
+git clone https://github.com/santunez75/proyecto-titulados.git
 cd proyecto-titulados
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
@@ -146,6 +161,35 @@ jupyter lab
 Tiempo aproximado de la primera ejecución completa: **4 a 6 minutos**
 (la consolidación de los 955 MB toma cerca de 25 segundos).
 
+### 5.3 Notebook de la Fase 3
+
+`F3/F3_Nucleo_Algoritmico.ipynb` consume el dataset analítico que produce la
+Fase 2 (`data/processed/titulados_pregrado_analitico.parquet`). Si ese archivo
+no existe —por ejemplo, en un equipo sin los CSV originales— el notebook usa
+automáticamente la muestra versionada de 5.000 registros y lo avisa.
+
+```powershell
+.venv\Scripts\python.exe -m jupyter lab F3/F3_Nucleo_Algoritmico.ipynb
+```
+
+Ejecútelo con **Kernel → Restart Kernel and Run All Cells**. Toma entre 5 y
+8 minutos con el dataset completo: la mayor parte son las mediciones de
+eficiencia, que repiten cada algoritmo varias veces sobre hasta 640.000
+elementos. Sus salidas quedan en `reports/tables/f3_*.csv` y
+`reports/figures/f3_*.png`.
+
+El núcleo también puede usarse desde código, sin notebook:
+
+```python
+from src.nucleo.fachada import NucleoAnalitico
+
+nucleo = NucleoAnalitico(limite_cohorte=300_000)
+print(nucleo.resumen_por("tipo_institucion"))      # métricas polimórficas por grupo
+print(nucleo.concentracion_rezago())               # descenso recursivo por el árbol
+resultado = nucleo.ajustar_modelos()               # regresión lineal y logística desde cero
+print(resultado.coeficientes())
+```
+
 ## 6. Decisiones técnicas documentadas
 
 | Decisión | Justificación |
@@ -162,11 +206,30 @@ Tiempo aproximado de la primera ejecución completa: **4 a 6 minutos**
 | Umbrales de atípicos en `config.py` | Parámetros explícitos y auditables, no constantes escondidas en el código. |
 | Normalizar el catálogo de categorías y no fila por fila | Reduce el trabajo de 1,7 millones de cadenas por columna a unos pocos miles de valores únicos. |
 
+### Decisiones de la Fase 3
+
+| Decisión | Justificación |
+|----------|---------------|
+| Implementar los algoritmos desde cero y **medirlos contra pandas/NumPy** | Es la única forma de contrastar la cota teórica con el comportamiento real y de justificar cuándo usar cada cosa. |
+| `timeit.repeat` con el **mínimo** de las repeticiones | El ruido del sistema solo suma tiempo; el mínimo estima el costo intrínseco. |
+| Curvas de escalamiento y exponente en escala log-log | Un solo tamaño no distingue O(n) de O(n log n); la pendiente sí. |
+| `Titulado` con `__slots__` y setters que validan | Cientos de miles de objetos con la mitad de memoria y sin estados inválidos. |
+| `Metrica` como Strategy en vez de `if/elif` | Agregar un indicador no obliga a modificar `Cohorte` ni la jerarquía. |
+| `NodoJerarquia` como Composite con totales memorizados | Una sola interfaz para hoja y nodo interno; la cache evita recorrer el árbol en cada consulta. |
+| Bucle de gradiente en la clase base (Template Method) | Se escribe una vez; lineal y logística sólo aportan enlace y pérdida. |
+| Solución cerrada como referencia del descenso de gradiente | Verifica que la implementación converge al óptimo exacto. |
+| Escalar con parámetros **solo de entrenamiento** | Evita la fuga de información hacia el conjunto de prueba. |
+| Detección explícita de divergencia por tasa excesiva | Una excepción clara en vez de pesos infinitos o NaN silenciosos. |
+
 ## 7. Validación y pruebas
 
 - **Motor de reglas** (`src/validacion.py`): 11 reglas sobre el conjunto
   completo — integridad, dominios, rangos, coherencia aritmética, cobertura
   temporal y duplicados. Resultado: 10 aprobadas, 1 advertencia documentada.
+- **Pruebas del núcleo** (`tests/test_nucleo.py`): 51 pruebas que contrastan cada
+  algoritmo con una referencia independiente (`sorted`, `statistics`, pandas,
+  solución cerrada) y cubren bordes (secuencias vacías, columnas constantes,
+  categorías no vistas) y excepciones (tasa divergente, modelo sin ajustar).
 - **Pruebas automatizadas** (`tests/test_pipeline.py`): 22 pruebas que cubren
   casos normales, casos límite y excepciones. Se ejecutan en menos de 2 segundos
   y no dependen de los CSV originales.
@@ -183,12 +246,12 @@ python -m pytest tests/ -v
 |------|-----------|--------|
 | F1 | Definición del problema y entorno reproducible | Completada |
 | F2 | Obtención, exploración, limpieza, transformación y validación | Completada |
-| F3 | Modelación de la sobreduración | Proyectada |
+| F3 | Núcleo algorítmico, eficiencia y POO; modelación desde primeros principios | En entrega (rama `fase-3/nucleo-algoritmico`) |
 | F4 | Reporte analítico final | Proyectada |
 
 ## 9. Informe técnico
 
-El informe de las Fases 1 y 2 está en `informe/f1_s01_evaluacion_entregable_grupox.pdf`
+El informe de las Fases 1 y 2 está en `informe/Sumativa1_Fase1_2_Sebastian_Antunez.pdf`
 (44 páginas). Todas sus cifras, tablas y figuras provienen de los notebooks de este
 repositorio y se regeneran ejecutando el pipeline.
 

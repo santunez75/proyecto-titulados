@@ -1,0 +1,10 @@
+regla,descripcion,severidad,estado,detalle
+cohorte_y_arbol,La jerarquia contiene exactamente los titulados de la cohorte.,critica,PASA,"cohorte=300,000, arbol.total()=300,000"
+hojas_suman_total,Las hojas del arbol suman el total de la raiz (recursion correcta).,critica,PASA,"suma de hojas=300,000, total=300,000"
+metrica_composite,Una metrica via el arbol coincide con la misma via la cohorte.,critica,PASA,"media via arbol=2.769097, via cohorte=2.769097"
+tasa_oportuna_coherente,La tasa de titulacion oportuna sobre objetos coincide con la de F2.,critica,PASA,"objetos=18.93 %, dataset completo=18.97 % (tolerancia 1 punto por muestreo)"
+convergencia_gd,El descenso de gradiente converge a la solucion cerrada.,critica,PASA,diferencia maxima GD vs. cerrada = 0.0118
+perdida_decrece,La perdida final es menor que la inicial.,critica,PASA,"ECM inicial=21.9128, final=13.0065, iteraciones=1084"
+matrices_modelacion,Las matrices no tienen NaN y comparten columnas.,critica,PASA,"entrenamiento (160000, 16), prueba (40000, 16), sin NaN=True"
+metricas_finitas,Todas las metricas de desempeno son numeros finitos.,critica,PASA,"25 metricas, todas finitas=True"
+r2_positivo,El modelo lineal explica varianza en el conjunto de prueba.,advertencia,PASA,R2 en prueba = 0.0854
