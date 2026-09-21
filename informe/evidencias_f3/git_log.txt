@@ -1,12 +1,13 @@
-28eb1d3  2026-09-19  docs(f3): agrega el PDF del informe con la fecha de entrega
-6d5b2a5  2026-09-19  docs(f3): Primer Informe F3
-236c42d  2026-09-19  docs(f3): informe tecnico de la Fase 3 y evidencias de ejecucion
-adc443f  2026-09-19  docs(f3): notebook del nucleo algoritmico ejecutado de corrido
-3fbf510  2026-09-19  test(nucleo): 51 pruebas de casos normales, limite y excepciones
-1fef35d  2026-09-19  feat(nucleo): preparacion, modelos por descenso de gradiente y fachada
-386d50f  2026-09-19  feat(nucleo): modelo de dominio orientado a objetos
-25ed65c  2026-09-19  feat(nucleo): algoritmos estructurados y recursivos con analisis de complejidad
-bff6327  2026-09-15  docs: agrega CLAUDE.md con el contexto del proyecto para cualquier equipo
+9062995  2026-09-21  merge: integra la rama fase-3/nucleo-algoritmico en main
+58cb930  2026-09-19  docs(f3): actualiza el informe y las evidencias con el historial definitivo
+b769379  2026-09-19  docs(f3): agrega el PDF del informe con la fecha de entrega
+d10b470  2026-09-19  docs(f3): Primer Informe F3
+6d348f8  2026-09-19  docs(f3): informe tecnico de la Fase 3 y evidencias de ejecucion
+b8770f5  2026-09-19  docs(f3): notebook del nucleo algoritmico ejecutado de corrido
+d6df25e  2026-09-19  test(nucleo): 51 pruebas de casos normales, limite y excepciones
+40be4d9  2026-09-19  feat(nucleo): preparacion, modelos por descenso de gradiente y fachada
+a1342a5  2026-09-19  feat(nucleo): modelo de dominio orientado a objetos
+8d87723  2026-09-19  feat(nucleo): algoritmos estructurados y recursivos con analisis de complejidad
 76867c7  2026-09-15  chore: prepara la rama de la Fase 3 y sanea el repositorio
 807ad02  2026-09-09  Reejecucion de notebook en el equipo de trabajo con documento pdf
 9d8c578  2026-09-09  Reejecucion de notebook en el equipo de trabajo con Jupyter LAB
