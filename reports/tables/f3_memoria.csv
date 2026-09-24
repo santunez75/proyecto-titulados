@@ -1,5 +1,5 @@
 algoritmo,espacio_teorico,pico_kb,kb_por_1000_elementos
-ordenar_merge,O(n),3253.5,16.27
+ordenar_merge,O(n),3274.4,16.37
 quickselect (mediana),O(n),4422.0,22.11
 sorted,O(n),2343.6,11.72
 agrupar_media,O(k),0.7,0.0
