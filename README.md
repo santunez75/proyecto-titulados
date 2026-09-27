@@ -1,6 +1,6 @@
 # Sobreduración en la titulación de la educación superior chilena (2020–2025)
 
-Proyecto transversal del curso **Programación para la Ciencia de Datos (202682.1927)** — Fases 1, 2 y 3.
+Proyecto transversal del curso **Programación para la Ciencia de Datos (202682.1927)** — Fases 1 a 4 (completo).
 
 **Autor:** Sebastian Antunez Noguera
 **Docente:** Omar Salinas · **Programa:** Magíster en Ciencia de Datos e Inteligencia Artificial · Universidad Andrés Bello
@@ -35,6 +35,9 @@ a su duración teórica, y qué factores se asocian a esa brecha?
 | Menor rezago por área | Educación (1,93 semestres) |
 | Brecha de género | Las mujeres se titulan 0,94 semestres antes |
 | Crecimiento de la modalidad no presencial | 4,7 % (2020) → 11,2 % (2025) |
+| Rezago severo (más de 4 semestres) | 20,4 % de los titulados |
+| Titulación anticipada (antes del plazo) | 4,1 % |
+| Semestres-estudiante en exceso acumulados | 3.551.990 |
 
 ## 2. Estructura del repositorio
 
@@ -48,6 +51,8 @@ proyecto-titulados/
 │   └── F2_3_Validacion_Analisis.ipynb      Validación técnica y resultados
 ├── F3/
 │   └── F3_Nucleo_Algoritmico.ipynb  Algoritmos, complejidad, POO y modelación (Fase 3)
+├── F4/
+│   └── F4_Reporte_Analitico.ipynb   Reporte integrador F1–F4, visualizaciones y discusión
 ├── src/
 │   ├── config.py            Rutas, esquema de datos y constantes
 │   ├── ingesta.py           Lectura por bloques y consolidación en Parquet
@@ -80,9 +85,16 @@ proyecto-titulados/
 │   ├── ER titulados ... .pdf   Esquema de registro oficial del SIES
 │   └── mapa_conceptual/     Mapa conceptual técnico de la Fase 1 (SVG, PNG, PDF + generador)
 ├── informe/
-│   ├── Sumativa1_Fase1_2_Sebastian_Antunez.pdf   Informe técnico entregado (Fases 1 y 2)
-│   ├── Sumativa1_Fase1_2_Sebastian_Antunez.docx  Fuente editable del informe
-│   └── evidencias/          Salidas de pytest, git log y pipeline
+│   ├── Sumativa1_Fase1_2_...pdf/.docx   Informe de las Fases 1 y 2
+│   ├── Formativa3_Fase3_...pdf/.docx    Avance formativo de la Fase 3
+│   ├── Sumativa2_Fase3_...pdf/.docx     Informe de la Fase 3
+│   ├── Sumativa3_Fase4_...pdf/.docx     Informe final integrador (Fase 4)
+│   └── evidencias*/         Salidas de pytest, git log y pipeline por fase
+├── powerbi/
+│   └── GUIA_POWERBI.md      Tablero de comunicación de resultados (datos generados aparte)
+├── scripts/
+│   └── exportar_powerbi.py  Exporta el modelo en estrella y el score de riesgo
+├── CHANGELOG.md             Trazabilidad de mejoras vinculada a commits
 ├── requirements.txt         Dependencias con versiones fijadas
 └── README.md
 ```
@@ -190,6 +202,34 @@ resultado = nucleo.ajustar_modelos()               # regresión lineal y logíst
 print(resultado.coeficientes())
 ```
 
+### 5.4 Notebook de la Fase 4
+
+`F4/F4_Reporte_Analitico.ipynb` es el reporte integrador: recorre el flujo F1→F4,
+produce las cuatro figuras finales y las tablas de resultados, ejecuta la validación
+técnica y cierra con la discusión y las conclusiones.
+
+```powershell
+.venv\Scripts\python.exe -m jupyter lab F4/F4_Reporte_Analitico.ipynb
+```
+
+Ejecútelo con **Kernel → Restart Kernel and Run All Cells**. Tarda menos de un minuto
+con el dataset completo, porque reutiliza los resultados de eficiencia medidos en la
+Fase 3 en lugar de repetirlos. Sus salidas quedan en `reports/figures/f4_*.png` y
+`reports/tables/f4_*.csv`.
+
+### 5.5 Tablero de comunicación de resultados
+
+Para explorar los resultados sin ejecutar código:
+
+```powershell
+.venv\Scripts\python.exe -m scripts.exportar_powerbi
+```
+
+Genera en `powerbi/` un modelo en estrella (tabla de hechos con 1.246.760 filas más
+cuatro dimensiones) que incluye el score de riesgo del modelo logístico de la Fase 3.
+El procedimiento para construir el tablero está en [powerbi/GUIA_POWERBI.md](powerbi/GUIA_POWERBI.md).
+Los archivos de datos generados no se versionan: se regeneran con ese comando.
+
 ## 6. Decisiones técnicas documentadas
 
 | Decisión | Justificación |
@@ -246,14 +286,23 @@ python -m pytest tests/ -v
 |------|-----------|--------|
 | F1 | Definición del problema y entorno reproducible | Completada |
 | F2 | Obtención, exploración, limpieza, transformación y validación | Completada |
-| F3 | Núcleo algorítmico, eficiencia y POO; modelación desde primeros principios | En entrega (rama `fase-3/nucleo-algoritmico`) |
-| F4 | Reporte analítico final | Proyectada |
+| F3 | Núcleo algorítmico, eficiencia y POO; modelación desde primeros principios | Completada (rama `fase-3/nucleo-algoritmico`, integrada en `main`) |
+| F4 | Reporte analítico, visualizaciones, discusión y comunicación | Completada |
+
+La trazabilidad de las mejoras aplicadas entre fases, con su commit e impacto técnico,
+está en [CHANGELOG.md](CHANGELOG.md).
 
 ## 9. Informe técnico
 
-El informe de las Fases 1 y 2 está en `informe/Sumativa1_Fase1_2_Sebastian_Antunez.pdf`
-(44 páginas). Todas sus cifras, tablas y figuras provienen de los notebooks de este
-repositorio y se regeneran ejecutando el pipeline.
+| Entrega | Archivo | Contenido |
+|---|---|---|
+| Fases 1 y 2 | `informe/Sumativa1_Fase1_2_Sebastian_Antunez.pdf` | Definición, pipeline y validación |
+| Fase 3 (formativa) | `informe/Formativa3_Fase3_Sebastian_Antunez.pdf` | Scripts y mediciones de complejidad |
+| Fase 3 (sumativa) | `informe/Sumativa2_Fase3_Sebastian_Antunez.pdf` | Núcleo algorítmico, eficiencia y POO |
+| Fase 4 | `informe/Sumativa3_Fase4_Sebastian_Antunez.pdf` | Reporte final integrador |
+
+Todas las cifras, tablas y figuras de los informes provienen de los notebooks de este
+repositorio y se regeneran ejecutándolos.
 
 ## 10. Créditos y licencia
 
