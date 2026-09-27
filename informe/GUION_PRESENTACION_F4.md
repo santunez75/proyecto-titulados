@@ -2,7 +2,8 @@
 
 **Proyecto:** Sobreduración en la titulación de la educación superior chilena (2020-2025)
 **Autor:** Sebastian Antunez Noguera · **Duración objetivo:** 6 min 30 s (rango exigido: 5 a 8 min)
-**Diapositivas:** `informe/Presentacion_Fase4_Sebastian_Antunez.pptx` (10 láminas)
+**Diapositivas:** `informe/Presentacion_Fase4_Sebastian_Antunez.pptx` (10 láminas,
+construidas sobre el template institucional `PPT-Facultad-Ingenieria.pptx`)
 
 ---
 
