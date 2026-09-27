@@ -36,3 +36,8 @@ desktop.ini
 # --- Documentos temporales -------------------------------------------------
 ~$*.docx
 ~$*.xlsx
+
+# Salidas generadas para Power BI (se regeneran con scripts/exportar_powerbi.py)
+powerbi/*.parquet
+powerbi/*.csv
+powerbi/*.pbix
