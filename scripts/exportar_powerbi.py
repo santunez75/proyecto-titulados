@@ -177,8 +177,14 @@ def main() -> None:
     dim_carrera.to_csv(SALIDA / "dim_carrera.csv", index=False, encoding="utf-8-sig")
     dim_territorio.to_csv(SALIDA / "dim_territorio.csv", index=False, encoding="utf-8-sig")
     dim_tiempo.to_csv(SALIDA / "dim_tiempo.csv", index=False, encoding="utf-8-sig")
+    # Formato chileno (; como separador de columnas y coma decimal): Power BI
+    # con configuracion regional espanola interpreta el punto como separador de
+    # miles, de modo que un CSV con decimales en punto convierte 0,81 en 81.
+    hechos.to_csv(SALIDA / "hechos_titulados.csv", index=False,
+                  encoding="utf-8-sig", sep=";", decimal=",")
     hechos.sample(5_000, random_state=42).to_csv(
-        SALIDA / "muestra_hechos.csv", index=False, encoding="utf-8-sig"
+        SALIDA / "muestra_hechos.csv", index=False, encoding="utf-8-sig",
+        sep=";", decimal=","
     )
 
     print(f"\nArchivos en {SALIDA}:")

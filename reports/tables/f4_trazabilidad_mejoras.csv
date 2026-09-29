@@ -1,0 +1,11 @@
+Fase,Problema detectado,Mejora aplicada,Commit,Impacto
+F2,"Normalizacion fila por fila sobre 1,7 M de cadenas",Normalizar el catalogo de valores unicos y mapear de vuelta,5e07669,Rendimiento
+F2,Los tipos anulables rompian matplotlib y propagaban NA,Conversion explicita a float64 antes de graficar,f698c37,Correccion: 19 filas dejaban de marcarse en silencio
+F2,La celda de pruebas fallaba sin mostrar la causa,Apunta al interprete del entorno virtual e imprime stderr,b8770f5,Reproducibilidad
+F3,Los notebooks dependian del Parquet no versionado,Degradacion automatica a la muestra de 5.000 registros,40be4d9,Reproducibilidad
+F3,Los invariantes del dominio no estaban garantizados,Modelo de dominio con validacion en setters,a1342a5,Modularidad
+F3,Agregacion O(n.k) que recorria la secuencia por grupo,Agregacion de una sola pasada O(n),8d87723,"1,9x en tiempo y 860x en memoria"
+F3,Conteos por umbral con recorrido lineal,Dos busquedas binarias sobre copia ordenada,8d87723,6.516x mas rapido
+F3,El informe no seguia la estructura minima exigida,Reorganizacion segun la pauta de la asignatura,b5523ad,Documentacion
+F4,Una cifra comparaba contra la implementacion equivocada,Verificacion cruzada contra reports/tables y correccion,12ae178,Confiabilidad
+F4,Titulos que rotulaban el tema en vez de afirmar el hallazgo,"Titulo-enunciado, color con funcion y cuatro enunciados por figura",(esta fase),Comunicacion
