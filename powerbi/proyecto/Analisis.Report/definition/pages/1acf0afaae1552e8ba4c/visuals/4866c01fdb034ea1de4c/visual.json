@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "4866c01fdb034ea1de4c",
+  "position": {
+    "x": 1480,
+    "y": 88,
+    "z": 3,
+    "height": 150,
+    "width": 400,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Costo estimado en aranceles (MM$)"
+                }
+              },
+              "queryRef": "hechos_titulados.Costo estimado en aranceles (MM$)",
+              "nativeQueryRef": "Costo estimado en aranceles (MM$)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

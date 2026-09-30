@@ -1,29 +1,29 @@
 implementacion,n,segundos,us_por_elemento,memoria_pico_kb,repeticiones,exponente_empirico
-agrupar_media O(n),20000,0.007074,0.3537,,3,0.96
-agrupar_media O(n),40000,0.014297,0.3574,,3,0.96
-agrupar_media O(n),80000,0.03048,0.381,,3,0.96
-agrupar_media O(n),160000,0.051214,0.3201,,3,0.96
-agrupar_media O(n),320000,0.103023,0.3219,,3,0.96
-agrupar_media O(n),640000,0.201599,0.315,,3,0.96
-ordenar_merge O(n log n),20000,0.048483,2.4241,,3,1.08
-ordenar_merge O(n log n),40000,0.10634,2.6585,,3,1.08
-ordenar_merge O(n log n),80000,0.218831,2.7354,,3,1.08
-ordenar_merge O(n log n),160000,0.465549,2.9097,,3,1.08
-ordenar_merge O(n log n),320000,0.981142,3.0661,,3,1.08
-ordenar_merge O(n log n),640000,2.070654,3.2354,,3,1.08
-quickselect O(n),20000,0.003148,0.1574,,3,1.22
-quickselect O(n),40000,0.006249,0.1562,,3,1.22
-quickselect O(n),80000,0.020975,0.2622,,3,1.22
-quickselect O(n),160000,0.025303,0.1581,,3,1.22
-quickselect O(n),320000,0.091263,0.2852,,3,1.22
-quickselect O(n),640000,0.228289,0.3567,,3,1.22
-sorted (C),20000,0.001149,0.0575,,3,1.03
-sorted (C),40000,0.002329,0.0582,,3,1.03
-sorted (C),80000,0.004651,0.0581,,3,1.03
-sorted (C),160000,0.009796,0.0612,,3,1.03
-sorted (C),320000,0.0196,0.0612,,3,1.03
-sorted (C),640000,0.04054,0.0633,,3,1.03
-ordenar_insercion O(n²),500,0.004272,8.543,,3,2.0
-ordenar_insercion O(n²),1000,0.016393,16.3927,,3,2.0
-ordenar_insercion O(n²),2000,0.06552,32.7601,,3,2.0
-ordenar_insercion O(n²),4000,0.272182,68.0456,,3,2.0
+agrupar_media O(n),20000,0.007321,0.366,,3,0.98
+agrupar_media O(n),40000,0.012422,0.3106,,3,0.98
+agrupar_media O(n),80000,0.025142,0.3143,,3,0.98
+agrupar_media O(n),160000,0.049515,0.3095,,3,0.98
+agrupar_media O(n),320000,0.104791,0.3275,,3,0.98
+agrupar_media O(n),640000,0.204602,0.3197,,3,0.98
+ordenar_merge O(n log n),20000,0.049595,2.4797,,3,1.08
+ordenar_merge O(n log n),40000,0.103595,2.5899,,3,1.08
+ordenar_merge O(n log n),80000,0.224822,2.8103,,3,1.08
+ordenar_merge O(n log n),160000,0.467831,2.9239,,3,1.08
+ordenar_merge O(n log n),320000,0.997099,3.1159,,3,1.08
+ordenar_merge O(n log n),640000,2.104169,3.2878,,3,1.08
+quickselect O(n),20000,0.003124,0.1562,,3,1.22
+quickselect O(n),40000,0.00659,0.1648,,3,1.22
+quickselect O(n),80000,0.021066,0.2633,,3,1.22
+quickselect O(n),160000,0.02528,0.158,,3,1.22
+quickselect O(n),320000,0.093722,0.2929,,3,1.22
+quickselect O(n),640000,0.228866,0.3576,,3,1.22
+sorted (C),20000,0.001153,0.0576,,3,1.02
+sorted (C),40000,0.002295,0.0574,,3,1.02
+sorted (C),80000,0.004609,0.0576,,3,1.02
+sorted (C),160000,0.009436,0.059,,3,1.02
+sorted (C),320000,0.019447,0.0608,,3,1.02
+sorted (C),640000,0.039499,0.0617,,3,1.02
+ordenar_insercion O(n²),500,0.003976,7.952,,3,2.05
+ordenar_insercion O(n²),1000,0.016387,16.3869,,3,2.05
+ordenar_insercion O(n²),2000,0.069487,34.7434,,3,2.05
+ordenar_insercion O(n²),4000,0.279768,69.9421,,3,2.05

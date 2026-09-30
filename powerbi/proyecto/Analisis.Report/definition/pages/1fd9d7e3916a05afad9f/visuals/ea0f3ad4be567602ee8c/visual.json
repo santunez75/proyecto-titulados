@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "ea0f3ad4be567602ee8c",
+  "position": {
+    "x": 960,
+    "y": 258,
+    "z": 31,
+    "height": 480,
+    "width": 920,
+    "tabOrder": 31
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_institucion"
+                    }
+                  },
+                  "Property": "tipo_inst_1"
+                }
+              },
+              "queryRef": "dim_institucion.tipo_inst_1",
+              "nativeQueryRef": "tipo_inst_1",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "% de la cohorte señalada"
+                }
+              },
+              "queryRef": "hechos_titulados.% de la cohorte señalada",
+              "nativeQueryRef": "% de la cohorte señalada"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Cobertura del rezago real"
+                }
+              },
+              "queryRef": "hechos_titulados.Cobertura del rezago real",
+              "nativeQueryRef": "Cobertura del rezago real"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

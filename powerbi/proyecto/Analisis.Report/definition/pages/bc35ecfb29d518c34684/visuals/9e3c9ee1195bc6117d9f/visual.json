@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "9e3c9ee1195bc6117d9f",
+  "position": {
+    "x": 1180,
+    "y": 346,
+    "z": 31,
+    "height": 220,
+    "width": 700,
+    "tabOrder": 31
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "modalidad"
+                }
+              },
+              "queryRef": "hechos_titulados.modalidad",
+              "nativeQueryRef": "modalidad",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Sobreduración media"
+                }
+              },
+              "queryRef": "hechos_titulados.Sobreduración media",
+              "nativeQueryRef": "Sobreduración media"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

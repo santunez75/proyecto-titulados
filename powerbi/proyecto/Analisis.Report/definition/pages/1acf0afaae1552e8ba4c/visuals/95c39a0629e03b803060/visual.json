@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "95c39a0629e03b803060",
+  "position": {
+    "x": 40,
+    "y": 988,
+    "z": 40,
+    "height": 56,
+    "width": 1840,
+    "tabOrder": 40
+  },
+  "visual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Supuesto: se valora cada semestre adicional a un arancel completo. No distingue quién lo financia (familia, gratuidad, becas o CAE) ni descuenta las matrículas reducidas de los últimos semestres, de modo que la cifra es un orden de magnitud y no una estimación contable.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#6C757D",
+                      "fontStyle": "italic"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

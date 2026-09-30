@@ -1,0 +1,13 @@
+# Unifica las identidades de Git del autor.
+#
+# El proyecto se desarrolló desde dos equipos y en uno de ellos Git quedó
+# configurado con el nombre de usuario de GitHub en lugar del nombre propio.
+# Ambas identidades comparten el mismo correo institucional y corresponden a
+# la misma persona; sin este archivo, cualquier herramienta que cuente autores
+# informaría dos contribuyentes donde hay uno.
+#
+# Formato:  Nombre correcto <correo>  Nombre registrado <correo>
+# Se aplica a git shortlog, git log, git blame y a las estadísticas de GitHub.
+
+Sebastian Antunez Noguera <s.antuneznoguera@uandresbello.edu> Sebastian Antunez <s.antuneznoguera@uandresbello.edu>
+Sebastian Antunez Noguera <s.antuneznoguera@uandresbello.edu> santunez75 <s.antuneznoguera@uandresbello.edu>

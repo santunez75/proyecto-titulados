@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "2a03fe327cc5646532b7",
+  "position": {
+    "x": 40,
+    "y": 258,
+    "z": 30,
+    "height": 470,
+    "width": 920,
+    "tabOrder": 30
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_institucion"
+                    }
+                  },
+                  "Property": "nomb_inst"
+                }
+              },
+              "queryRef": "dim_institucion.nomb_inst",
+              "nativeQueryRef": "nomb_inst",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Costo estimado por titulado"
+                }
+              },
+              "queryRef": "hechos_titulados.Costo estimado por titulado",
+              "nativeQueryRef": "Costo estimado por titulado"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "hechos_titulados"
+                  }
+                },
+                "Property": "Costo estimado por titulado"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

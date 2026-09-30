@@ -1,0 +1,89 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "238bd6758ee3ea9bdf32",
+  "position": {
+    "x": 1240,
+    "y": 198,
+    "z": 31,
+    "height": 620,
+    "width": 640,
+    "tabOrder": 31
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_territorio"
+                    }
+                  },
+                  "Property": "region_sede"
+                }
+              },
+              "queryRef": "dim_territorio.region_sede",
+              "nativeQueryRef": "region_sede",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_territorio"
+                    }
+                  },
+                  "Property": "comuna_sede"
+                }
+              },
+              "queryRef": "dim_territorio.comuna_sede",
+              "nativeQueryRef": "comuna_sede",
+              "active": false
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Sobreduración media"
+                }
+              },
+              "queryRef": "hechos_titulados.Sobreduración media",
+              "nativeQueryRef": "Sobreduración media"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "hechos_titulados"
+                  }
+                },
+                "Property": "Sobreduración media"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

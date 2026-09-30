@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a99669c7247c2a4a883f",
+  "position": {
+    "x": 980,
+    "y": 258,
+    "z": 31,
+    "height": 390,
+    "width": 900,
+    "tabOrder": 31
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_carrera"
+                    }
+                  },
+                  "Property": "area_conocimiento"
+                }
+              },
+              "queryRef": "dim_carrera.area_conocimiento",
+              "nativeQueryRef": "area_conocimiento",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Desviación vs. nacional"
+                }
+              },
+              "queryRef": "hechos_titulados.Desviación vs. nacional",
+              "nativeQueryRef": "Desviación vs. nacional"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "hechos_titulados"
+                  }
+                },
+                "Property": "Desviación vs. nacional"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "9664228473b23a9221e2",
+  "position": {
+    "x": 580,
+    "y": 88,
+    "z": 1,
+    "height": 150,
+    "width": 420,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Estudiantes sobre el umbral"
+                }
+              },
+              "queryRef": "hechos_titulados.Estudiantes sobre el umbral",
+              "nativeQueryRef": "Estudiantes sobre el umbral"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,48 @@
+table dim_territorio
+	lineageTag: 5bddfb2b-3a9a-45c8-850d-992a9538fc5c
+
+	column id_territorio
+		dataType: int64
+		formatString: 0
+		lineageTag: cb619880-a0ad-45ec-8bde-5dcf4f8b75b9
+		summarizeBy: none
+		sourceColumn: id_territorio
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_sede
+		dataType: string
+		lineageTag: 1f961c04-8a23-427c-be00-0357e265c867
+		summarizeBy: none
+		sourceColumn: region_sede
+
+		annotation SummarizationSetBy = Automatic
+
+	column provincia_sede
+		dataType: string
+		lineageTag: d6f43cab-330a-41e9-8154-93c431def598
+		summarizeBy: none
+		sourceColumn: provincia_sede
+
+		annotation SummarizationSetBy = Automatic
+
+	column comuna_sede
+		dataType: string
+		lineageTag: 9f3cb18a-ee45-4d10-88ec-35ec1199cd6e
+		summarizeBy: none
+		sourceColumn: comuna_sede
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_territorio = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\IA Development\proyecto-titulados\powerbi\dim_territorio.csv"),[Delimiter=",", Columns=4, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id_territorio", Int64.Type}, {"region_sede", type text}, {"provincia_sede", type text}, {"comuna_sede", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

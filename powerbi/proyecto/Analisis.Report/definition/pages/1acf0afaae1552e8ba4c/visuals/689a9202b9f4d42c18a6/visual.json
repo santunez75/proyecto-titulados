@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "689a9202b9f4d42c18a6",
+  "position": {
+    "x": 560,
+    "y": 88,
+    "z": 1,
+    "height": 150,
+    "width": 420,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Semestres extra por titulado"
+                }
+              },
+              "queryRef": "hechos_titulados.Semestres extra por titulado",
+              "nativeQueryRef": "Semestres extra por titulado"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

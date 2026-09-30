@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "fca09c41b4fdf1da6d41",
+  "position": {
+    "x": 1180,
+    "y": 706,
+    "z": 33,
+    "height": 330,
+    "width": 700,
+    "tabOrder": 33
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_institucion"
+                    }
+                  },
+                  "Property": "tipo_inst_1"
+                }
+              },
+              "queryRef": "dim_institucion.tipo_inst_1",
+              "nativeQueryRef": "tipo_inst_1",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Duración teórica media"
+                }
+              },
+              "queryRef": "hechos_titulados.Duración teórica media",
+              "nativeQueryRef": "Duración teórica media"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Duración real media"
+                }
+              },
+              "queryRef": "hechos_titulados.Duración real media",
+              "nativeQueryRef": "Duración real media"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

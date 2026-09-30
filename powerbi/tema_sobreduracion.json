@@ -1,0 +1,222 @@
+{
+  "name": "Sobreduracion UNAB",
+  "dataColors": [
+    "#2C5F8D",
+    "#AC212E",
+    "#5B9BD5",
+    "#7FB069",
+    "#E4A11B",
+    "#8E7CC3",
+    "#4CB5AE",
+    "#C77D3F",
+    "#9FB6C8",
+    "#6C757D"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#3B3B3B",
+  "tableAccent": "#2C5F8D",
+  "good": "#1E7A46",
+  "neutral": "#9FB6C8",
+  "bad": "#AC212E",
+  "maximum": "#AC212E",
+  "center": "#F2E8C9",
+  "minimum": "#1E7A46",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 13,
+      "color": "#20236D"
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 11,
+      "color": "#20236D"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#3B3B3B"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 34,
+      "color": "#20236D"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#E6E9EF"
+              }
+            },
+            "radius": 6
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": false
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "alignment": "left",
+            "fontColor": {
+              "solid": {
+                "color": "#20236D"
+              }
+            },
+            "background": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        ],
+        "outspacePane": [
+          {
+            "backgroundColor": {
+              "solid": {
+                "color": "#F5F7FA"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#F5F7FA"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "outspace": [
+          {
+            "color": {
+              "solid": {
+                "color": "#F5F7FA"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "barChart": {
+      "*": {
+        "categoryAxis": [
+          {
+            "gridlineShow": false
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineShow": false
+          }
+        ],
+        "labels": [
+          {
+            "show": true
+          }
+        ]
+      }
+    },
+    "columnChart": {
+      "*": {
+        "categoryAxis": [
+          {
+            "gridlineShow": false
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineShow": false
+          }
+        ],
+        "labels": [
+          {
+            "show": true
+          }
+        ]
+      }
+    },
+    "lineChart": {
+      "*": {
+        "categoryAxis": [
+          {
+            "gridlineShow": false
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineShow": true
+          }
+        ],
+        "labels": [
+          {
+            "show": true
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "color": {
+              "solid": {
+                "color": "#20236D"
+              }
+            },
+            "fontSize": 34
+          }
+        ],
+        "categoryLabels": [
+          {
+            "color": {
+              "solid": {
+                "color": "#6C757D"
+              }
+            },
+            "fontSize": 10
+          }
+        ]
+      }
+    },
+    "slicer": {
+      "*": {
+        "header": [
+          {
+            "show": true,
+            "fontColor": {
+              "solid": {
+                "color": "#20236D"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

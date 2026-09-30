@@ -1,0 +1,125 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "9f523b084cafb17c4e70",
+  "position": {
+    "x": 40,
+    "y": 748,
+    "z": 32,
+    "height": 230,
+    "width": 1420,
+    "tabOrder": 32
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_institucion"
+                    }
+                  },
+                  "Property": "nomb_inst"
+                }
+              },
+              "queryRef": "dim_institucion.nomb_inst",
+              "nativeQueryRef": "nomb_inst"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Titulados"
+                }
+              },
+              "queryRef": "hechos_titulados.Titulados",
+              "nativeQueryRef": "Titulados"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Semestres extra por titulado"
+                }
+              },
+              "queryRef": "hechos_titulados.Semestres extra por titulado",
+              "nativeQueryRef": "Semestres extra por titulado"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Desviación vs. nacional"
+                }
+              },
+              "queryRef": "hechos_titulados.Desviación vs. nacional",
+              "nativeQueryRef": "Desviación vs. nacional"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Costo estimado por titulado"
+                }
+              },
+              "queryRef": "hechos_titulados.Costo estimado por titulado",
+              "nativeQueryRef": "Costo estimado por titulado"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Costo estimado en aranceles (MM$)"
+                }
+              },
+              "queryRef": "hechos_titulados.Costo estimado en aranceles (MM$)",
+              "nativeQueryRef": "Costo estimado en aranceles (MM$)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "hechos_titulados"
+                  }
+                },
+                "Property": "Costo estimado por titulado"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

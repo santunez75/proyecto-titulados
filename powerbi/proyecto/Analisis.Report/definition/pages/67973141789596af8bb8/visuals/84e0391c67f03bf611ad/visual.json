@@ -1,0 +1,111 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "84e0391c67f03bf611ad",
+  "position": {
+    "x": 1060,
+    "y": 198,
+    "z": 31,
+    "height": 838,
+    "width": 820,
+    "tabOrder": 31
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_institucion"
+                    }
+                  },
+                  "Property": "nomb_inst"
+                }
+              },
+              "queryRef": "dim_institucion.nomb_inst",
+              "nativeQueryRef": "nomb_inst"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Titulados"
+                }
+              },
+              "queryRef": "hechos_titulados.Titulados",
+              "nativeQueryRef": "Titulados"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Sobreduración media (min 1000)"
+                }
+              },
+              "queryRef": "hechos_titulados.Sobreduración media (min 1000)",
+              "nativeQueryRef": "Sobreduración media (min 1000)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "% Titulación oportuna"
+                }
+              },
+              "queryRef": "hechos_titulados.% Titulación oportuna",
+              "nativeQueryRef": "% Titulación oportuna"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "% Rezago severo"
+                }
+              },
+              "queryRef": "hechos_titulados.% Rezago severo",
+              "nativeQueryRef": "% Rezago severo"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "hechos_titulados"
+                  }
+                },
+                "Property": "Sobreduración media (min 1000)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

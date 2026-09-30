@@ -1,0 +1,82 @@
+table dim_carrera
+	lineageTag: 329d787c-be94-42d6-8526-7ff97db1baed
+
+	column id_carrera
+		dataType: int64
+		formatString: 0
+		lineageTag: ccbbbde6-18eb-44a4-9fad-345a8ef277b2
+		summarizeBy: none
+		sourceColumn: id_carrera
+
+		annotation SummarizationSetBy = Automatic
+
+	column cod_inst
+		dataType: int64
+		formatString: 0
+		lineageTag: df82dd72-0dc3-4f31-8b2c-159944b6c6e3
+		summarizeBy: none
+		sourceColumn: cod_inst
+
+		annotation SummarizationSetBy = Automatic
+
+	column cod_carrera
+		dataType: int64
+		formatString: 0
+		lineageTag: 638173ea-7e7d-48e7-9cc8-228098111223
+		summarizeBy: none
+		sourceColumn: cod_carrera
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomb_carrera
+		dataType: string
+		lineageTag: 8297dc31-1efc-4bfa-9299-83fde3956483
+		summarizeBy: none
+		sourceColumn: nomb_carrera
+
+		annotation SummarizationSetBy = Automatic
+
+	column area_conocimiento
+		dataType: string
+		lineageTag: c7f5291c-2b6c-47c2-85f4-307146f173cb
+		summarizeBy: none
+		sourceColumn: area_conocimiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column area_generica
+		dataType: string
+		lineageTag: 503a25b8-099f-4943-8a57-503102987b4e
+		summarizeBy: none
+		sourceColumn: area_generica
+
+		annotation SummarizationSetBy = Automatic
+
+	column cine_f_13_area
+		dataType: string
+		lineageTag: 8e19ca10-b8bc-467b-9c9c-c87eefd59f5d
+		summarizeBy: none
+		sourceColumn: cine_f_13_area
+
+		annotation SummarizationSetBy = Automatic
+
+	column cine_f_13_subarea
+		dataType: string
+		lineageTag: 8b1d49ea-4f8b-4f83-b596-4476c29db8db
+		summarizeBy: none
+		sourceColumn: cine_f_13_subarea
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_carrera = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\IA Development\proyecto-titulados\powerbi\dim_carrera.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id_carrera", Int64.Type}, {"cod_inst", Int64.Type}, {"cod_carrera", Int64.Type}, {"nomb_carrera", type text}, {"area_conocimiento", type text}, {"area_generica", type text}, {"cine_f_13_area", type text}, {"cine_f_13_subarea", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

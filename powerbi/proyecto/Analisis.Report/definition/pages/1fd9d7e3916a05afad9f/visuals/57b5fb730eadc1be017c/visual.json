@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "57b5fb730eadc1be017c",
+  "position": {
+    "x": 1460,
+    "y": 88,
+    "z": 3,
+    "height": 150,
+    "width": 420,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Cobertura del rezago real"
+                }
+              },
+              "queryRef": "hechos_titulados.Cobertura del rezago real",
+              "nativeQueryRef": "Cobertura del rezago real"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

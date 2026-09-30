@@ -22,6 +22,7 @@ implementa y su impacto técnico. Cada fila es verificable con `git show <hash>`
 | 8 | El descenso de gradiente devolvía pesos infinitos o `NaN` con tasas de aprendizaje altas | F3 | Detección explícita de divergencia con excepción y mensaje accionable | `40be4d9` | **Robustez**: error claro en vez de resultado silenciosamente inválido |
 | 9 | El informe de la Fase 3 tenía el contenido exigido pero no la estructura mínima solicitada | F3 (sumativa) | Reorganización completa en las secciones I–VI de las instrucciones | `b5523ad` | **Documentación**: correspondencia uno a uno con la pauta de evaluación |
 | 10 | El informe citaba la agregación propia como «5 veces más rápida»; el 5,5 de la tabla era la razón contra pandas, no contra la versión ingenua | F3 (verificación cruzada en F4) | Cifras corregidas a 1,9× en tiempo y 860× en memoria, y aclaración de la comparación de `quickselect` | `12ae178` | **Confiabilidad**: toda cifra del informe es rastreable a `reports/tables/` |
+| 11 | El historial registraba dos identidades de Git para una sola persona (`Sebastian Antunez` y `santunez75`), ambas con el mismo correo institucional | F3 (observación del docente en la Sumativa 2) | Archivo `.mailmap` que unifica ambas identidades en `Sebastian Antunez Noguera` | `(esta fase)` | **Trazabilidad**: `git shortlog` pasa de informar dos contribuyentes a uno; afecta también a `git blame` y a las estadísticas de GitHub |
 
 ## 2. Evolución por fase
 
@@ -38,9 +39,15 @@ de modo que el punto de integración queda registrado en el historial.
 
 ## 3. Nota sobre la autoría
 
-El proyecto es de autoría individual. El historial registra dos identidades de Git
-(`Sebastian Antunez` y `santunez75`) que corresponden a la misma persona trabajando desde
-dos equipos distintos; ambas apuntan a la cuenta institucional del autor.
+El proyecto es de autoría individual. El historial registró durante el desarrollo dos
+identidades de Git —`Sebastian Antunez` y `santunez75`—, originadas en que uno de los dos
+equipos quedó configurado con el nombre de usuario de GitHub. Ambas comparten el correo
+institucional y corresponden a la misma persona.
+
+Desde la Fase 4 el repositorio incluye un archivo [`.mailmap`](.mailmap) que las unifica.
+Con él, `git shortlog -sne --all` informa **43 commits de un único autor**, y lo mismo
+hacen `git blame` y las estadísticas de GitHub. Sin ese archivo, cualquier herramienta que
+cuente contribuyentes reportaría dos personas donde hay una.
 
 ## 4. Cómo verificar cualquier fila de este registro
 

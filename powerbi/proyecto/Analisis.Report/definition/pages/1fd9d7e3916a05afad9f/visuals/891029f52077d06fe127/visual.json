@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "891029f52077d06fe127",
+  "position": {
+    "x": 1020,
+    "y": 88,
+    "z": 2,
+    "height": 150,
+    "width": 420,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "% de la cohorte señalada"
+                }
+              },
+              "queryRef": "hechos_titulados.% de la cohorte señalada",
+              "nativeQueryRef": "% de la cohorte señalada"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

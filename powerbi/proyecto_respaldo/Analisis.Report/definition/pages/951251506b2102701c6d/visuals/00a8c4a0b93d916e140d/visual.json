@@ -1,0 +1,122 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "00a8c4a0b93d916e140d",
+  "position": {
+    "x": 9.2150170648464158,
+    "y": 0,
+    "z": 0,
+    "height": 597.13310580204779,
+    "width": 1103.9590443686006,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_carrera"
+                    }
+                  },
+                  "Property": "area_conocimiento"
+                }
+              },
+              "queryRef": "dim_carrera.area_conocimiento",
+              "nativeQueryRef": "area_conocimiento",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "hechos_titulados"
+                        }
+                      },
+                      "Property": "sobreduracion_sem"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(hechos_titulados.sobreduracion_sem)",
+              "nativeQueryRef": "Average of sobreduracion_sem"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "hechos_titulados"
+                      }
+                    },
+                    "Property": "sobreduracion_sem"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e96b6884ad2a887b9b06",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_carrera"
+              }
+            },
+            "Property": "area_conocimiento"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c60c4bf826dc26cac04c",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "hechos_titulados"
+                  }
+                },
+                "Property": "sobreduracion_sem"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

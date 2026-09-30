@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "c84b33a6035893c43b63",
+  "position": {
+    "x": 1180,
+    "y": 346,
+    "z": 31,
+    "height": 340,
+    "width": 700,
+    "tabOrder": 31
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "categoria_rezago"
+                }
+              },
+              "queryRef": "hechos_titulados.categoria_rezago",
+              "nativeQueryRef": "categoria_rezago",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Titulados"
+                }
+              },
+              "queryRef": "hechos_titulados.Titulados",
+              "nativeQueryRef": "Titulados"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

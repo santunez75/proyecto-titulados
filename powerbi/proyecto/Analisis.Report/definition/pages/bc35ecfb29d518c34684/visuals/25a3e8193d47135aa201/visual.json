@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "25a3e8193d47135aa201",
+  "position": {
+    "x": 40,
+    "y": 88,
+    "z": 0,
+    "height": 130,
+    "width": 352,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Brecha de género (sem)"
+                }
+              },
+              "queryRef": "hechos_titulados.Brecha de género (sem)",
+              "nativeQueryRef": "Brecha de género (sem)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

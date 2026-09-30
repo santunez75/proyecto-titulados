@@ -1,3 +1,10 @@
+93386d2  2026-09-28  fix(notebooks): declara el kernel del entorno virtual en los seis notebooks
+db592ea  2026-09-28  docs(f4): alinea informe, figuras y presentacion con el apunte de la fase
+ffe2e5a  2026-09-28  feat(f4): rehace el notebook segun el apunte de la fase
+b368e66  2026-09-27  docs(f4): incorpora las notas del orador en cada diapositiva
+eae2f88  2026-09-27  docs(f4): rehace la presentacion sobre el template institucional
+e40fc6b  2026-09-27  docs(f4): presentacion audiovisual y guion cronometrado
+a4b1c71  2026-09-27  docs(f4): informe final integrador, changelog y README de las cuatro fases
 12ae178  2026-09-27  feat(f4): notebook del reporte analitico integrador con cuatro figuras
 7538f5c  2026-09-24  chore(f3): re-ejecuta los notebooks en el entorno local y actualiza salidas
 b5523ad  2026-09-24  docs(f3): versión final del informe

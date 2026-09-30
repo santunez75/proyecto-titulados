@@ -1,0 +1,364 @@
+table hechos_titulados
+	lineageTag: 7eb634a7-33be-4c7a-9b46-92048e5d9555
+
+	measure Titulados = COUNTROWS(hechos_titulados)
+		formatString: 0
+		lineageTag: f71663c8-5631-441a-91a2-6f4cb4e1c921
+
+	measure 'Sobreduración media' = AVERAGE(hechos_titulados[sobreduracion_sem])
+		formatString: 0.00
+		lineageTag: 8bf895c2-01d1-48cd-a981-60a293a2ba83
+
+	measure '% Titulación oportuna' =
+			
+			DIVIDE(
+			    CALCULATE([Titulados], hechos_titulados[titulacion_oportuna] = TRUE()),
+			    [Titulados]
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: d0678711-0c14-4cf8-ac0c-ed845c3f6683
+
+	measure '% Rezago severo' =
+			
+			DIVIDE(
+			    CALCULATE([Titulados], hechos_titulados[categoria_rezago] = "Rezago severo"),
+			    [Titulados]
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 146e39e3-1c78-4fd9-b5ce-f083ae98627d
+
+	measure 'Semestres en exceso' = SUM(hechos_titulados[sobreduracion_sem])
+		formatString: 0
+		lineageTag: e2b29542-5588-4fbf-a680-60e845c9b294
+
+	measure 'Brecha de género (sem)' =
+			
+			CALCULATE([Sobreduración media], hechos_titulados[genero] = "Hombre")
+			    - CALCULATE([Sobreduración media], hechos_titulados[genero] = "Mujer")
+		formatString: 0.00
+		lineageTag: b1ea155d-4734-4801-90bb-c7d4e12dbc8b
+
+	measure 'Sobreduración media (min 1000)' = IF([Titulados] >= 1000, [Sobreduración media])
+		lineageTag: 034394b8-7746-4423-8170-7295176d3a6b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Estudiantes sobre el umbral' =
+			
+			CALCULATE(
+			    [Titulados],
+			    FILTER(
+			        VALUES(hechos_titulados[prob_rezago]),
+			        hechos_titulados[prob_rezago] >= [Umbral Value]
+			    )
+			)
+		formatString: 0
+		lineageTag: 18770e82-d727-46ab-84c7-8b09c311d0dc
+
+	measure '% de la cohorte señalada' =
+			
+			DIVIDE([Estudiantes sobre el umbral], [Titulados])
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 76d18bac-35c2-402f-adc6-7856d902b17e
+
+	measure 'Cobertura del rezago real' =
+			
+			VAR Rezagados =
+			    CALCULATE([Titulados], hechos_titulados[titulacion_oportuna] = FALSE())
+			VAR Detectados =
+			    CALCULATE(
+			        [Titulados],
+			        FILTER(
+			            VALUES(hechos_titulados[prob_rezago]),
+			            hechos_titulados[prob_rezago] >= [Umbral Value]
+			        ),
+			        hechos_titulados[titulacion_oportuna] = FALSE()
+			    )
+			RETURN
+			    DIVIDE(Detectados, Rezagados)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 755efd45-7573-42ee-9cf4-c8201fd8ca13
+
+	measure 'Duración teórica media' = AVERAGE(hechos_titulados[duracion_teorica_sem])
+		formatString: 0.00
+		lineageTag: 97d8dbb2-64a3-4842-acc2-5abf00039229
+
+	measure 'Duración real media' = AVERAGE(hechos_titulados[duracion_real_sem])
+		formatString: 0.00
+		lineageTag: f6bc2a7c-2788-4060-b4fb-7cc71be5c68c
+
+	measure 'Índice de duración' = DIVIDE([Duración real media], [Duración teórica media])
+		formatString: 0.00
+		lineageTag: 57ad0a40-4c47-4aff-a971-5834c0e8d657
+
+	measure 'Sobreduración mediana' = MEDIAN(hechos_titulados[sobreduracion_sem])
+		formatString: 0.0
+		lineageTag: f2b152f8-253f-4e31-9215-4b1de6af8fab
+
+	measure '% Titulación anticipada' = DIVIDE(CALCULATE([Titulados], hechos_titulados[sobreduracion_sem] < 0), [Titulados])
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 7b37139c-3035-474e-bf34-7709151336ea
+
+	measure 'Semestres en exceso (positivos)' =
+			CALCULATE(SUM(hechos_titulados[sobreduracion_sem]),
+			hechos_titulados[sobreduracion_sem] > 0)
+		formatString: #,0
+		lineageTag: 91267dc2-4d77-4887-976c-1e48e830de2b
+
+	measure 'Costo estimado en aranceles' = [Semestres en exceso (positivos)] * [Arancel Value]
+		formatString: \$#,0
+		lineageTag: ba65366d-ce8e-4b1b-82f7-7eba536230c3
+
+	measure 'Costo estimado por titulado' = DIVIDE([Costo estimado en aranceles], [Titulados])
+		formatString: \$#,0
+		lineageTag: edff28ae-e150-44a0-aebb-dd3494933a8d
+
+	measure 'Promedio nacional' = CALCULATE([Sobreduración media], REMOVEFILTERS())
+		formatString: 0.00
+		lineageTag: 5c1ac848-4205-4295-b751-e4831f8009f2
+
+	measure 'Desviación vs. nacional' = [Sobreduración media] - [Promedio nacional]
+		formatString: +0.00;-0.00;0.00
+		lineageTag: 86799ebe-45f1-40ed-8b72-5f8b0131a99c
+
+	measure '% sobre el promedio nacional' = DIVIDE([Desviación vs. nacional], [Promedio nacional])
+		formatString: +0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: c95e665b-5595-4bd9-b8d5-ff65794bd713
+
+	measure 'Semestres extra por titulado' = DIVIDE([Semestres en exceso (positivos)], [Titulados])
+		formatString: 0.0
+		lineageTag: 076e045f-493c-44a7-8fa7-e66d2dd861ef
+
+	measure 'Costo estimado en aranceles (MM$)' = DIVIDE([Costo estimado en aranceles], 1000000)
+		formatString: #,0
+		lineageTag: 05b611ff-5d42-48e4-b281-2391845d2c66
+
+	column id_titulado
+		dataType: int64
+		formatString: 0
+		lineageTag: f8e3b4bf-d107-4326-80e5-f44445cf34e1
+		summarizeBy: sum
+		sourceColumn: id_titulado
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cod_inst
+		dataType: int64
+		formatString: 0
+		lineageTag: a26a75db-5bfa-4ad8-946f-f7149415c4a2
+		summarizeBy: none
+		sourceColumn: cod_inst
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_periodo
+		dataType: int64
+		formatString: 0
+		lineageTag: 03051d0f-a60f-4e2e-a6fc-75adc81010ea
+		summarizeBy: none
+		sourceColumn: id_periodo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column genero
+		dataType: string
+		lineageTag: 2089b279-7aa4-472a-a7b2-8e6c0308edd8
+		summarizeBy: none
+		sourceColumn: genero
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column modalidad
+		dataType: string
+		lineageTag: 353d7fea-22d6-484e-bfed-8d66d9db6451
+		summarizeBy: none
+		sourceColumn: modalidad
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column jornada
+		dataType: string
+		lineageTag: 4d073ea2-6931-4145-80c7-6b5e626fb157
+		summarizeBy: none
+		sourceColumn: jornada
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_edad
+		dataType: string
+		lineageTag: 02ad533d-c93f-4aed-a63e-c3a121207dad
+		summarizeBy: none
+		sourceColumn: rango_edad
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column categoria_rezago
+		dataType: string
+		lineageTag: 15c80827-3130-4255-82ea-a14d393005c0
+		summarizeBy: none
+		sourceColumn: categoria_rezago
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cohorte_ingreso
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f2ffdd1-7423-4ae8-9cc2-2c0058c2460c
+		summarizeBy: sum
+		sourceColumn: cohorte_ingreso
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column duracion_teorica_sem
+		dataType: int64
+		formatString: 0
+		lineageTag: 1f74de0f-e3c0-45f8-9b96-fe84a24cf130
+		summarizeBy: sum
+		sourceColumn: duracion_teorica_sem
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column duracion_real_sem
+		dataType: int64
+		formatString: 0
+		lineageTag: 37e74aac-f925-4f5f-bd4e-d319c49977a5
+		summarizeBy: sum
+		sourceColumn: duracion_real_sem
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sobreduracion_sem
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f87c94b-25b8-40e8-9460-a619f55974b1
+		summarizeBy: sum
+		sourceColumn: sobreduracion_sem
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column indice_duracion
+		dataType: double
+		formatString: 0.000
+		lineageTag: b82c0014-014a-46bf-92f0-9253230b014e
+		summarizeBy: sum
+		sourceColumn: indice_duracion
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column titulacion_oportuna
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a2ee6f8f-b526-4e4b-8ea3-f9de8dd873d0
+		summarizeBy: none
+		sourceColumn: titulacion_oportuna
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column edad_ingreso
+		dataType: int64
+		formatString: 0
+		lineageTag: 00971709-2d12-4403-b234-512a21ce1fe0
+		summarizeBy: sum
+		sourceColumn: edad_ingreso
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column edad_titulacion
+		dataType: int64
+		formatString: 0
+		lineageTag: 63b95ca7-e2d4-45c2-bcf2-7f9b65d0c0a5
+		summarizeBy: sum
+		sourceColumn: edad_titulacion
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_atipico
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: dc948f55-01d9-408c-881a-307c5f600530
+		summarizeBy: none
+		sourceColumn: es_atipico
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_carrera
+		dataType: int64
+		formatString: 0
+		lineageTag: d674357a-91f7-4ab7-8d13-e05440648227
+		summarizeBy: none
+		sourceColumn: id_carrera
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_territorio
+		dataType: int64
+		formatString: 0
+		lineageTag: b388b39f-c324-46c3-9a09-29d34882e18a
+		summarizeBy: none
+		sourceColumn: id_territorio
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column prob_rezago
+		dataType: double
+		formatString: 0.000
+		lineageTag: 25b4e19e-00af-460f-a365-8060e5964d5c
+		summarizeBy: sum
+		sourceColumn: prob_rezago
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hechos_titulados = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\IA Development\proyecto-titulados\powerbi\hechos_titulados.csv"),[Delimiter=";", Columns=20, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id_titulado", Int64.Type}, {"cod_inst", Int64.Type}, {"id_periodo", Int64.Type}, {"genero", type text}, {"modalidad", type text}, {"jornada", type text}, {"rango_edad", type text}, {"categoria_rezago", type text}, {"cohorte_ingreso", Int64.Type}, {"duracion_teorica_sem", Int64.Type}, {"duracion_real_sem", Int64.Type}, {"sobreduracion_sem", Int64.Type}, {"indice_duracion", type number}, {"titulacion_oportuna", type logical}, {"edad_ingreso", Int64.Type}, {"edad_titulacion", Int64.Type}, {"es_atipico", type logical}, {"id_carrera", Int64.Type}, {"id_territorio", Int64.Type}, {"prob_rezago", type number}})
+				in
+				    #"Changed Type"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

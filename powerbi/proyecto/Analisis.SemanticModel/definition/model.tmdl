@@ -1,0 +1,25 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-ES
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["hechos_titulados","dim_carrera","dim_institucion","dim_territorio","dim_tiempo"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table hechos_titulados
+ref table dim_carrera
+ref table dim_institucion
+ref table dim_territorio
+ref table dim_tiempo
+ref table Umbral
+ref table Arancel
+
+ref cultureInfo en-US
+

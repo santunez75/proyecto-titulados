@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "99fdc00688d8140738b0",
+  "position": {
+    "x": 980,
+    "y": 258,
+    "z": 31,
+    "height": 470,
+    "width": 900,
+    "tabOrder": 31
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_carrera"
+                    }
+                  },
+                  "Property": "area_conocimiento"
+                }
+              },
+              "queryRef": "dim_carrera.area_conocimiento",
+              "nativeQueryRef": "area_conocimiento",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Semestres extra por titulado"
+                }
+              },
+              "queryRef": "hechos_titulados.Semestres extra por titulado",
+              "nativeQueryRef": "Semestres extra por titulado"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "hechos_titulados"
+                  }
+                },
+                "Property": "Semestres extra por titulado"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

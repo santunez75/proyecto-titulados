@@ -1,0 +1,22 @@
+table Arancel
+	lineageTag: 8cc0545f-35a9-4a1d-8d92-f8c1da6c5d7c
+
+	measure 'Arancel Value' = SELECTEDVALUE('Arancel'[Arancel], 1800000)
+		formatString: \$#,0
+		lineageTag: 7663296c-d1e7-4a70-9213-8ea27808a12c
+
+	column Arancel
+		formatString: \$#,0
+		lineageTag: b51a9653-b479-43bb-8160-adac9cbcbcc9
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Arancel]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Arancel = calculated
+		mode: import
+		source = SELECTCOLUMNS(GENERATESERIES(500000, 5000000, 100000), "Arancel", [Value])
+
+	annotation PBI_Id = bc751afabf8a4fb4b6df65f40e13d923
+
