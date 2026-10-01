@@ -89,7 +89,6 @@ proyecto-titulados/
 │   ├── Sumativa2_Fase3_...pdf/.docx     Informe de la Fase 3
 │   ├── Sumativa3_Fase4_...pdf/.docx     Informe final integrador (Fase 4)
 │   ├── Presentacion_Fase4_...pptx       Presentación de cierre: 10 diapositivas con notas
-│   ├── GUION_PRESENTACION_F4.md         Guion cronometrado de la presentación
 │   └── evidencias*/         Salidas de pytest, git log y pipeline por fase
 ├── powerbi/
 │   ├── proyecto/            Tablero en formato .pbip: informe y modelo como texto versionable
@@ -394,12 +393,12 @@ La Fase 4 cierra el proyecto con tres entregables: el notebook integrador
 `F4/F4_Reporte_Analitico.ipynb`, que recorre el flujo completo F1→F4 y produce
 las figuras y tablas finales; el informe
 `informe/Sumativa3_Fase4_Sebastian_Antunez.pdf`, que discute los resultados y
-sus límites; y la presentación `informe/Presentacion_Fase4_...pptx` con su
-guion cronometrado. A ellos se suma, por iniciativa propia y fuera de lo
-exigido, el **tablero de Power BI** descrito en el apartado 5.5: convierte los
-hallazgos fijos del informe en un instrumento que el lector puede interrogar,
-con dos parámetros que permiten evaluar escenarios de costo y de cobertura de
-una intervención.
+sus límites; y la presentación `informe/Presentacion_Fase4_...pptx`, con las
+notas del orador en cada diapositiva. A ellos se suma, por iniciativa propia y
+fuera de lo exigido, el **tablero de Power BI** descrito en el apartado 5.5:
+convierte los hallazgos fijos del informe en un instrumento que el lector puede
+interrogar, con dos parámetros que permiten evaluar escenarios de costo y de
+cobertura de una intervención.
 
 La trazabilidad de las mejoras aplicadas entre fases, con su commit e impacto técnico,
 está en [CHANGELOG.md](CHANGELOG.md).
