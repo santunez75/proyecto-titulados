@@ -1,4 +1,13 @@
-* 12ae178 feat(f4): notebook del reporte analitico integrador con cuatro figuras
+* 0c39261 chore(powerbi): consolida el tablero en el equipo de entrega
+* a790dd5 fix(git): unifica las identidades del historial con un archivo .mailmap
+* 778b815 fix(notebooks): declara el kernel del entorno virtual en los seis notebooks
+* f31fae4 docs(f4): alinea informe, figuras y presentacion con el apunte de la fase
+* fc27061 feat(f4): rehace el notebook segun el apunte de la fase
+* d8b87e4 docs(f4): incorpora las notas del orador en cada diapositiva
+* 88f6a79 docs(f4): rehace la presentacion sobre el template institucional
+* b7b056b docs(f4): presentacion audiovisual y guion cronometrado
+* 2a27de0 docs(f4): informe final integrador, changelog y README de las cuatro fases
+* 21cfbb9 feat(f4): notebook del reporte analitico integrador con cuatro figuras
 * 7538f5c chore(f3): re-ejecuta los notebooks en el entorno local y actualiza salidas
 * b5523ad docs(f3): versión final del informe
 * b62d36a docs(f3): informe y evidencias alineados con el historial definitivo

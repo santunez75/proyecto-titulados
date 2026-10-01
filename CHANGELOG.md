@@ -21,7 +21,7 @@ implementa y su impacto técnico. Cada fila es verificable con `git show <hash>`
 | 7 | Los conteos por umbral recorrían la lista completa por cada categoría de rezago | F3 | Dos búsquedas binarias recursivas sobre una copia ordenada; cota superior para manejar los empates | `8d87723` | **Rendimiento**: O(log n) por consulta; 6.516× más rápido que el recorrido lineal |
 | 8 | El descenso de gradiente devolvía pesos infinitos o `NaN` con tasas de aprendizaje altas | F3 | Detección explícita de divergencia con excepción y mensaje accionable | `40be4d9` | **Robustez**: error claro en vez de resultado silenciosamente inválido |
 | 9 | El informe de la Fase 3 tenía el contenido exigido pero no la estructura mínima solicitada | F3 (sumativa) | Reorganización completa en las secciones I–VI de las instrucciones | `b5523ad` | **Documentación**: correspondencia uno a uno con la pauta de evaluación |
-| 10 | El informe citaba la agregación propia como «5 veces más rápida»; el 5,5 de la tabla era la razón contra pandas, no contra la versión ingenua | F3 (verificación cruzada en F4) | Cifras corregidas a 1,9× en tiempo y 860× en memoria, y aclaración de la comparación de `quickselect` | `12ae178` | **Confiabilidad**: toda cifra del informe es rastreable a `reports/tables/` |
+| 10 | El informe citaba la agregación propia como «5 veces más rápida»; el 5,5 de la tabla era la razón contra pandas, no contra la versión ingenua | F3 (verificación cruzada en F4) | Cifras corregidas a 1,9× en tiempo y 860× en memoria, y aclaración de la comparación de `quickselect` | `21cfbb9` | **Confiabilidad**: toda cifra del informe es rastreable a `reports/tables/` |
 | 11 | El historial registraba dos identidades de Git para una sola persona (`Sebastian Antunez` y `santunez75`), ambas con el mismo correo institucional | F3 (observación del docente en la Sumativa 2) | Archivo `.mailmap` que unifica ambas identidades en `Sebastian Antunez Noguera` | `(esta fase)` | **Trazabilidad**: `git shortlog` pasa de informar dos contribuyentes a uno; afecta también a `git blame` y a las estadísticas de GitHub |
 
 ## 2. Evolución por fase
@@ -31,7 +31,7 @@ implementa y su impacto técnico. Cada fila es verificable con `git show <hash>`
 | F1 | `8d219de` … `02cd383` | Definición del problema y entorno reproducible | Completada |
 | F2 | `c8bb51e` … `fc75c8f` | Pipeline de limpieza, transformación y validación | Completada |
 | F3 | `76867c7` … `b62d36a` | Núcleo algorítmico, eficiencia y POO | Completada |
-| F4 | `12ae178` … | Reporte analítico, visualizaciones y comunicación | En entrega |
+| F4 | `21cfbb9` … | Reporte analítico, visualizaciones y comunicación | En entrega |
 
 Ramas utilizadas: `main`, `fase-2/pipeline-datos`, `fase-3/nucleo-algoritmico`. Las dos
 ramas de trabajo se integraron a `main` con fusiones explícitas (`b1021bc` y `9062995`),
@@ -45,7 +45,7 @@ equipos quedó configurado con el nombre de usuario de GitHub. Ambas comparten e
 institucional y corresponden a la misma persona.
 
 Desde la Fase 4 el repositorio incluye un archivo [`.mailmap`](.mailmap) que las unifica.
-Con él, `git shortlog -sne --all` informa **43 commits de un único autor**, y lo mismo
+Con él, `git shortlog -sne --all` informa **45 commits de un único autor**, y lo mismo
 hacen `git blame` y las estadísticas de GitHub. Sin ese archivo, cualquier herramienta que
 cuente contribuyentes reportaría dos personas donde hay una.
 

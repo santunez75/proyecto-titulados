@@ -79,4 +79,4 @@ tests/test_pipeline.py::test_tabla_agregada_respeta_minimo_de_casos PASSED [ 97%
 tests/test_pipeline.py::test_formato_numerico_chileno PASSED             [ 98%]
 tests/test_pipeline.py::test_configuracion_expone_versiones PASSED       [100%]
 
-============================= 73 passed in 1.65s ==============================
+============================= 73 passed in 1.92s ==============================

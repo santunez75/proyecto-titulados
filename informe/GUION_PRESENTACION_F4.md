@@ -112,7 +112,7 @@ Antes de grabar: cerrar notificaciones, abrir el PPTX en modo presentación (la 
 
 > *Los registros administrativos no explican el caso individual: el R cuadrado es de 0 coma 085 y la clasificación no supera a predecir siempre la clase mayoritaria. Eso no es un fracaso del modelo, es un resultado: el rezago depende de trayectorias personales que esta fuente no registra.*
 
-> *Y todo el proyecto es reproducible: cuatro comandos lo instalan y ejecutan, con 36 commits verificables y cada cifra rastreable hasta el archivo que la generó.*
+> *Y todo el proyecto es reproducible: cuatro comandos lo instalan y ejecutan, con 45 commits verificables y cada cifra rastreable hasta el archivo que la generó.*
 
 ---
 
