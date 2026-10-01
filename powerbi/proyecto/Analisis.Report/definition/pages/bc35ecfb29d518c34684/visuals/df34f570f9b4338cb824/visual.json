@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "df34f570f9b4338cb824",
   "position": {
     "x": 40,
     "y": 18,
-    "z": 100,
+    "z": 13000,
     "height": 50,
     "width": 1840,
-    "tabOrder": 100
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "pageNavigator",

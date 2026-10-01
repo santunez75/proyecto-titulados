@@ -38,7 +38,7 @@ table dim_institucion
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\IA Development\proyecto-titulados\powerbi\dim_institucion.csv"),[Delimiter=",", Columns=4, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    Source = Csv.Document(File.Contents("D:\Magister Ciencia de Datos\Programacion para la Ciencia\Sumativas\proyecto-titulados\powerbi\dim_institucion.csv"),[Delimiter=",", Columns=4, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"cod_inst", Int64.Type}, {"nomb_inst", type text}, {"tipo_inst_1", type text}, {"tipo_inst_2", type text}})
 				in

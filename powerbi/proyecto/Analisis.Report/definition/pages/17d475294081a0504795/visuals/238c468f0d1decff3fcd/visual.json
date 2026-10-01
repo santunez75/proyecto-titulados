@@ -1,0 +1,93 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "238c468f0d1decff3fcd",
+  "position": {
+    "x": 40,
+    "y": 616,
+    "z": 3000,
+    "height": 380,
+    "width": 1840,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Qué NO permite concluir este tablero",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#AC212E",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Ninguna cohorte está completa. De las cohortes recientes solo se han titulado los más rápidos; de las antiguas, solo los más rezagados. Están incompletas en direcciones opuestas, de modo que el descenso de la serie desde 2024 no es una mejora del sistema. Las comparaciones longitudinales solo valen entre cohortes con horizonte de titulación equivalente.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#3B3B3B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Solo aparece quien se tituló. La base no registra a quien abandonó, que es probablemente la consecuencia más grave del rezago. La magnitud está subestimada en la dirección más seria.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#3B3B3B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "La duración declarada no está auditada. La reporta cada institución. Un plan subdeclarado infla la sobreduración medida de esa carrera, de modo que parte de la diferencia entre áreas puede ser un artefacto de la declaración.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#3B3B3B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Asociación, no causalidad. Todo el análisis es observacional, sin grupo de control ni diseño experimental. Que dos variables se presenten juntas no implica que una produzca la otra.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#3B3B3B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "El modelo no explica el caso individual. Con un R² de 0,085 y una clasificación que no supera a predecir siempre la clase mayoritaria, el score de riesgo sirve para priorizar grupos y no para etiquetar a un estudiante.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#3B3B3B"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

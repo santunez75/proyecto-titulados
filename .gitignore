@@ -41,3 +41,14 @@ desktop.ini
 powerbi/*.parquet
 powerbi/*.csv
 powerbi/*.pbix
+
+# --- Entregas formativas ---------------------------------------------------
+# El repositorio publica unicamente las entregas sumativas. Los informes
+# formativos se conservan en local, fuera del control de versiones.
+informe/Formativa*
+
+# --- Ajustes locales de Power BI Desktop -----------------------------------
+# Enlazan el proyecto con la cuenta y el equipo donde se abrio: identificador
+# del area de trabajo y credenciales cifradas para esa maquina. No sirven en
+# otro equipo y no deben publicarse.
+powerbi/proyecto/**/.pbi/localSettings.json

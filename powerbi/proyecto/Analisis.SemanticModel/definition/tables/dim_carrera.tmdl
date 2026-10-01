@@ -72,7 +72,7 @@ table dim_carrera
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\IA Development\proyecto-titulados\powerbi\dim_carrera.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    Source = Csv.Document(File.Contents("D:\Magister Ciencia de Datos\Programacion para la Ciencia\Sumativas\proyecto-titulados\powerbi\dim_carrera.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id_carrera", Int64.Type}, {"cod_inst", Int64.Type}, {"cod_carrera", Int64.Type}, {"nomb_carrera", type text}, {"area_conocimiento", type text}, {"area_generica", type text}, {"cine_f_13_area", type text}, {"cine_f_13_subarea", type text}})
 				in

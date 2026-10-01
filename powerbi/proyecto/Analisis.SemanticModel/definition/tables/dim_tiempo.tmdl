@@ -43,7 +43,7 @@ table dim_tiempo
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\IA Development\proyecto-titulados\powerbi\dim_tiempo.csv"),[Delimiter=",", Columns=4, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    Source = Csv.Document(File.Contents("D:\Magister Ciencia de Datos\Programacion para la Ciencia\Sumativas\proyecto-titulados\powerbi\dim_tiempo.csv"),[Delimiter=",", Columns=4, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id_periodo", Int64.Type}, {"anio_titulo", Int64.Type}, {"semestre_titulo", Int64.Type}, {"periodo", type text}})
 				in

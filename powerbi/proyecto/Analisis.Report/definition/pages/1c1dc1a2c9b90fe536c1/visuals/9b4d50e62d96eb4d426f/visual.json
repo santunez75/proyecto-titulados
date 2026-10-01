@@ -1,0 +1,88 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "9b4d50e62d96eb4d426f",
+  "position": {
+    "x": 980,
+    "y": 300,
+    "z": 7000,
+    "height": 480,
+    "width": 900,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_tiempo"
+                    }
+                  },
+                  "Property": "periodo"
+                }
+              },
+              "queryRef": "dim_tiempo.periodo",
+              "nativeQueryRef": "periodo",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Sobreduración media"
+                }
+              },
+              "queryRef": "hechos_titulados.Sobreduración media",
+              "nativeQueryRef": "Sobreduración media"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "% Titulación oportuna"
+                }
+              },
+              "queryRef": "hechos_titulados.% Titulación oportuna",
+              "nativeQueryRef": "% Titulación oportuna"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_tiempo"
+                  }
+                },
+                "Property": "periodo"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

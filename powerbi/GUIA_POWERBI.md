@@ -86,11 +86,13 @@ local se entra por otra puerta:
    ```
    let
        Origen = Parquet.Document(
-           File.Contents("D:\IA Development\proyecto-titulados\powerbi\hechos_titulados.parquet")
+           File.Contents("<ruta del proyecto>\powerbi\hechos_titulados.parquet")
        )
    in
        Origen
    ```
+
+   Reemplace `<ruta del proyecto>` por la carpeta donde tiene el repositorio.
 
 4. **Listo** → renombra la consulta a `hechos_titulados` en el panel derecho →
    **Cerrar y aplicar**.

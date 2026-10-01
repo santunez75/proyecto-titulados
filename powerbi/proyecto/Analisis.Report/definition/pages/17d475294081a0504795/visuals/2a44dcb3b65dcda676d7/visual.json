@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "2a44dcb3b65dcda676d7",
+  "position": {
+    "x": 40,
+    "y": 1010,
+    "z": 4000,
+    "height": 40,
+    "width": 1840,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Elaboración propia a partir de SIES, Titulados de Educación Superior 2020-2025 · Proyecto disponible en github.com/santunez75/proyecto-titulados",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#6C757D"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

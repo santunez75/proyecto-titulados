@@ -1,0 +1,104 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "4dd10bc279f555a37257",
+  "position": {
+    "x": 40,
+    "y": 176,
+    "z": 1000,
+    "height": 420,
+    "width": 900,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Los indicadores",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#20236D",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Sobreduración. Semestres cursados por sobre la duración que declara el plan de estudios. Es una variable derivada: no existe en la fuente.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#3B3B3B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Titulación en plazo. Porcentaje que egresa con sobreduración menor o igual a cero, es decir dentro del plazo declarado.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#3B3B3B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Rezago severo. Más de cuatro semestres —dos años— sobre el plan.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#3B3B3B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Índice de duración. Razón entre duración real y teórica. Un 1,43 significa que se cursa un 43 % más de tiempo del previsto. Permite comparar carreras de distinta extensión.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#3B3B3B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Desviación vs. nacional. Diferencia entre la sobreduración del grupo seleccionado y la del sistema completo. Distingue si un valor alto es propio del grupo o común a todos.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#3B3B3B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Costo estimado en aranceles. Semestres en exceso multiplicados por un arancel semestral ajustable. Es un orden de magnitud, no una estimación contable.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#3B3B3B"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

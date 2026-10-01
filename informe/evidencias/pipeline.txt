@@ -21,4 +21,4 @@ construir_dataset_analitico                                                     
            sin_duplicados     PASA                    0 duplicados sobre cat_periodo + mrun + cod_carrera + fecha_obtencion_titulo.
 periodo_igual_anio_titulo ADVIERTE 230,563 filas (18.49%) donde el anio del proceso no coincide con el anio de la fecha del titulo.
 10 reglas aprobadas, 1 advertencias, 0 fallas criticas.
-[pipeline] Dataset analitico: D:\IA Development\proyecto-titulados\data\processed\titulados_pregrado_analitico.parquet (33.9 MB)
+[pipeline] Dataset analitico: D:\Magister Ciencia de Datos\Programacion para la Ciencia\Sumativas\proyecto-titulados\data\processed\titulados_pregrado_analitico.parquet (33.9 MB)

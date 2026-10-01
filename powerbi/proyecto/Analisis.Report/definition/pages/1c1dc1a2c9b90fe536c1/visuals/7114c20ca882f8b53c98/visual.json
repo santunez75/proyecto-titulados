@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "7114c20ca882f8b53c98",
+  "position": {
+    "x": 40,
+    "y": 96,
+    "z": 0,
+    "height": 44,
+    "width": 1840,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Detalle de institución — llegue aquí con clic derecho sobre cualquier barra de otra página y «Obtener detalles»",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#6C757D"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

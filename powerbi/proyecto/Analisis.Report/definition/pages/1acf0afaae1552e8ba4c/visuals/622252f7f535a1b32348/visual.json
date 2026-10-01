@@ -38,6 +38,13 @@
       "data": [
         {
           "properties": {
+            "numericStart": {
+              "expr": {
+                "Literal": {
+                  "Value": "1800000D"
+                }
+              }
+            },
             "mode": {
               "expr": {
                 "Literal": {

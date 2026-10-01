@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "30820e2889f8a6cc9156",
+  "position": {
+    "x": 350,
+    "y": 88,
+    "z": 4000,
+    "height": 150,
+    "width": 200,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Arancel Value"
+                }
+              },
+              "queryRef": "hechos_titulados.Arancel Value",
+              "nativeQueryRef": "Arancel Value"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

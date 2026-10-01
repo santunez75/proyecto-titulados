@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "c84b33a6035893c43b63",
   "position": {
     "x": 1180,
     "y": 346,
-    "z": 31,
+    "z": 11000,
     "height": 340,
     "width": 700,
-    "tabOrder": 31
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "clusteredColumnChart",

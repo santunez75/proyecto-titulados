@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "c90096a2e5de2a3a9645",
+  "position": {
+    "x": 420,
+    "y": 150,
+    "z": 2000,
+    "height": 130,
+    "width": 360,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Sobreduración media"
+                }
+              },
+              "queryRef": "hechos_titulados.Sobreduración media",
+              "nativeQueryRef": "Sobreduración media"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

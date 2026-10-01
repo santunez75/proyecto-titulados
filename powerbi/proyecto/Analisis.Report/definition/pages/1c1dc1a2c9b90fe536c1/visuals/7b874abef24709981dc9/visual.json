@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "7b874abef24709981dc9",
+  "position": {
+    "x": 1540,
+    "y": 150,
+    "z": 5000,
+    "height": 130,
+    "width": 340,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hechos_titulados"
+                    }
+                  },
+                  "Property": "Costo estimado por titulado"
+                }
+              },
+              "queryRef": "hechos_titulados.Costo estimado por titulado",
+              "nativeQueryRef": "Costo estimado por titulado"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

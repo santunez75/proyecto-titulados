@@ -1,0 +1,47 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "1c1dc1a2c9b90fe536c1",
+  "displayName": "Detalle de institución",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "detalle_institucion",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_institucion"
+              }
+            },
+            "Property": "nomb_inst"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "requireSingleSelect": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "1c1dc1a2c9b90fe536c1_binding",
+    "type": "Drillthrough",
+    "parameters": []
+  }
+}

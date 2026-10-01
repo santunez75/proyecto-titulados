@@ -1,0 +1,105 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "dbd32f2aef96f3161c66",
+  "position": {
+    "x": 980,
+    "y": 176,
+    "z": 2000,
+    "height": 420,
+    "width": 900,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Cómo se construyó",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#20236D",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Fuente. Servicio de Información de Educación Superior (SIES), Titulados de Educación Superior 2020-2025: seis archivos, 955 MB, 1.710.167 registros.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#3B3B3B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Depuración. Códigos centinela convertidos en nulos explícitos, normalización de 18 columnas categóricas, restricción a pregrado, eliminación de duplicados y descarte de filas sin fecha de ingreso utilizable. Quedan 1.246.760 registros, el 72,9 % del original, y cada exclusión está cuantificada.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#3B3B3B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "La derivación central. La duración real se reconstruye a partir del año y semestre de ingreso y de titulación:",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#3B3B3B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "duracion_real = (anio_titulo − anio_ingreso) × 2 + (semestre_titulo − semestre_ingreso) + 1",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#20236D",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "El «+1» no es un ajuste: quien ingresa y se titula en el mismo semestre cursó un semestre, no cero.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#3B3B3B"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Verificación. 73 pruebas automatizadas y 9 reglas de coherencia del dominio, todas aprobadas. Cada cifra se reproduce ejecutando el notebook del repositorio.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#3B3B3B"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
