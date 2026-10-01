@@ -20,13 +20,13 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "hechos_titulados"
+                      "Entity": "Umbral"
                     }
                   },
                   "Property": "Umbral Value"
                 }
               },
-              "queryRef": "hechos_titulados.Umbral Value",
+              "queryRef": "Umbral.Umbral Value",
               "nativeQueryRef": "Umbral Value"
             }
           ]

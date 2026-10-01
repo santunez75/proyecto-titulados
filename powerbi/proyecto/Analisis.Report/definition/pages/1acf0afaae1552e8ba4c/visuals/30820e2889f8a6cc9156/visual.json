@@ -20,13 +20,13 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "hechos_titulados"
+                      "Entity": "Arancel"
                     }
                   },
                   "Property": "Arancel Value"
                 }
               },
-              "queryRef": "hechos_titulados.Arancel Value",
+              "queryRef": "Arancel.Arancel Value",
               "nativeQueryRef": "Arancel Value"
             }
           ]

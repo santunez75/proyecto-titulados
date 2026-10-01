@@ -313,3 +313,67 @@ humo.
   el informe. Sirve para demostrar la integración, pero es lento y exige Python
   instalado en cada equipo que abra el archivo. Para producción es mejor lo que
   hicimos: precalcular en Python y que Power BI solo consuma el resultado.
+
+---
+
+## 11. Abrir el tablero que viene en el repositorio
+
+Las secciones anteriores reconstruyen el tablero desde cero. No hace falta
+hacerlo: el repositorio ya trae el tablero terminado en `powerbi/proyecto/`,
+con nueve páginas y 88 visuales.
+
+### Formato `.pbip` y no `.pbix`
+
+Un `.pbix` es un binario: pesa decenas de megabytes, cambia entero cada vez que
+se guarda y no se puede revisar en un `diff`. El formato de proyecto `.pbip`
+guarda lo mismo como archivos de texto —el informe en JSON y el modelo en
+TMDL—, de modo que el tablero se versiona como cualquier otro código y cada
+cambio queda legible. Por eso el repositorio versiona el `.pbip` y deja fuera
+el `.pbix`, que se obtiene cuando se necesite con **Archivo → Guardar como**.
+
+### Pasos
+
+1. Generar los datos, que no están versionados por tamaño:
+
+   ```powershell
+   .venv\Scripts\python.exe -m scripts.exportar_powerbi
+   ```
+
+2. Abrir `powerbi/proyecto/Analisis.pbip` con Power BI Desktop.
+3. **Inicio → Actualizar**.
+
+### Si el repositorio está en otra ruta
+
+Power Query no admite rutas relativas al archivo: cada consulta guarda la ruta
+absoluta de la carpeta `powerbi/`. Si la carpeta clonada está en otra
+ubicación, la actualización falla con *«No se pudo encontrar el archivo»* o
+*«DataSource.Error»*. Se arregla una sola vez:
+
+1. **Inicio → Transformar datos** (abre el editor de Power Query).
+2. **Inicio → Configuración del origen de datos**.
+3. Seleccionar cada ruta de la lista y pulsar **Cambiar origen…**.
+4. Indicar el archivo correspondiente dentro de la carpeta `powerbi/` del
+   equipo actual: `hechos_titulados.csv`, `dim_carrera.csv`,
+   `dim_institucion.csv`, `dim_territorio.csv` y `dim_tiempo.csv`.
+5. **Cerrar y aplicar**, y guardar el proyecto.
+
+La alternativa, si se prefiere no tocar nada, es clonar el repositorio en la
+misma ruta en la que fue creado.
+
+### Formato de los CSV
+
+`exportar_powerbi.py` escribe los CSV con **punto y coma** como separador y
+**coma** como separador decimal, que es lo que espera la configuración regional
+chilena. Si Power BI los interpretara con el formato inglés, los índices de
+duración se leerían como enteros de millones. Las consultas del proyecto ya
+traen `[Delimiter=";"]` declarado, así que esto solo importa si se vuelve a
+cargar un archivo a mano.
+
+### Errores propios del proyecto ya armado
+
+| Síntoma | Causa | Solución |
+|---|---|---|
+| *«Fields that need to be fixed»* en una tarjeta | El visual pide una medida en una tabla que no la tiene | Verificar que `Arancel Value` y `Umbral Value` se tomen de las tablas `Arancel` y `Umbral`, no de `hechos_titulados` |
+| Los parámetros de arancel y umbral aparecen vacíos | Las tablas de parámetro se generan con `GENERATESERIES`; no se actualizan desde los CSV | Basta con **Actualizar**; no requieren archivo de origen |
+| `titulacion_oportuna` se muestra como número | El tipo quedó como decimal en «Changed Type» | Debe ser `type logical` (Verdadero/Falso) |
+| El tablero abre pero todos los visuales están vacíos | No se ejecutó `exportar_powerbi.py` | Generar los CSV y actualizar |

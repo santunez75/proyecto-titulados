@@ -86,14 +86,21 @@ proyecto-titulados/
 │   └── mapa_conceptual/     Mapa conceptual técnico de la Fase 1 (SVG, PNG, PDF + generador)
 ├── informe/
 │   ├── Sumativa1_Fase1_2_...pdf/.docx   Informe de las Fases 1 y 2
-│   ├── Formativa3_Fase3_...pdf/.docx    Avance formativo de la Fase 3
 │   ├── Sumativa2_Fase3_...pdf/.docx     Informe de la Fase 3
 │   ├── Sumativa3_Fase4_...pdf/.docx     Informe final integrador (Fase 4)
+│   ├── Presentacion_Fase4_...pptx       Presentación de cierre: 10 diapositivas con notas
+│   ├── GUION_PRESENTACION_F4.md         Guion cronometrado de la presentación
 │   └── evidencias*/         Salidas de pytest, git log y pipeline por fase
 ├── powerbi/
-│   └── GUIA_POWERBI.md      Tablero de comunicación de resultados (datos generados aparte)
+│   ├── proyecto/            Tablero en formato .pbip: informe y modelo como texto versionable
+│   │   ├── Analisis.pbip            Archivo que abre Power BI Desktop
+│   │   ├── Analisis.Report/         9 páginas, 88 visuales
+│   │   └── Analisis.SemanticModel/  Modelo en estrella, 25 medidas DAX y 2 parámetros
+│   ├── tema_sobreduracion.json  Paleta y tipografía del tablero
+│   └── GUIA_POWERBI.md      Cómo se construyó y cómo se abre
 ├── scripts/
 │   └── exportar_powerbi.py  Exporta el modelo en estrella y el score de riesgo
+├── .mailmap                 Unifica bajo un solo autor las dos identidades de Git usadas
 ├── CHANGELOG.md             Trazabilidad de mejoras vinculada a commits
 ├── requirements.txt         Dependencias con versiones fijadas
 └── README.md
@@ -141,6 +148,34 @@ Verificación del entorno:
 ```powershell
 python -c "from src import config; print(config.describir_entorno())"
 python -m pytest tests/ -v
+```
+
+### 4.1 Qué trae el repositorio clonado y qué no
+
+Un `git clone` entrega el proyecto completo salvo los datos masivos: los CSV
+del SIES pesan 955 MB y cada uno supera el límite de 100 MB por archivo de
+GitHub, de modo que ni ellos ni los artefactos derivados están versionados.
+
+| Al clonar | Estado | Cómo se obtiene |
+|---|---|---|
+| Código, notebooks con sus salidas, informes, presentación y tablero | Incluidos | — |
+| `data/processed/muestra_titulados_5000.csv` | Incluida | — |
+| `data/raw/*.csv` (955 MB) | **No incluidos** | Portal de datos abiertos del Mineduc |
+| `data/interim/` y `data/processed/*.parquet` | **No incluidos** | `python -m src.pipeline` |
+| CSV del modelo en estrella de `powerbi/` | **No incluidos** | `python -m scripts.exportar_powerbi` |
+
+Sin los CSV originales el proyecto **igual se ejecuta**: los notebooks detectan
+que falta el Parquet, usan la muestra versionada de 5.000 registros y lo avisan
+en pantalla. Las 73 pruebas de `pytest` no dependen de ningún dato externo, así
+que son lo primero que debería funcionar en un equipo recién clonado.
+
+Los notebooks se descargan **ya ejecutados**, con todas sus salidas, figuras y
+tablas visibles: se pueden leer de principio a fin sin ejecutar nada. Están
+declarados contra el kernel `proyecto-titulados`; para re-ejecutarlos hay que
+registrarlo una vez en el entorno virtual:
+
+```powershell
+.venv\Scripts\python.exe -m ipykernel install --user --name proyecto-titulados --display-name "Python (proyecto-titulados)"
 ```
 
 ## 5. Ejecución
@@ -217,18 +252,68 @@ con el dataset completo, porque reutiliza los resultados de eficiencia medidos e
 Fase 3 en lugar de repetirlos. Sus salidas quedan en `reports/figures/f4_*.png` y
 `reports/tables/f4_*.csv`.
 
-### 5.5 Tablero de comunicación de resultados
+### 5.5 Tablero interactivo en Power BI (valor agregado)
 
-Para explorar los resultados sin ejecutar código:
+El tablero no estaba pedido en ninguna fase del proyecto. Se incorporó como
+**valor agregado** por dos razones: permite explorar los resultados sin
+ejecutar código ni leer Python, y cierra el ciclo de comunicación con la
+herramienta que efectivamente se usa para presentar análisis en una
+organización. Lo que en el informe es una figura fija, aquí es una pregunta que
+el lector puede reformular.
 
-```powershell
-.venv\Scripts\python.exe -m scripts.exportar_powerbi
-```
+Está versionado en formato **`.pbip`**, que guarda el informe y el modelo como
+archivos de texto en lugar de un binario: cada cambio queda visible en un
+`diff` y el tablero entra en el control de versiones como cualquier otro
+código.
 
-Genera en `powerbi/` un modelo en estrella (tabla de hechos con 1.246.760 filas más
-cuatro dimensiones) que incluye el score de riesgo del modelo logístico de la Fase 3.
-El procedimiento para construir el tablero está en [powerbi/GUIA_POWERBI.md](powerbi/GUIA_POWERBI.md).
-Los archivos de datos generados no se versionan: se regeneran con ese comando.
+**Qué responde cada página**
+
+| Página | Pregunta |
+|---|---|
+| Panorama | ¿Cuánta sobreduración hay y cómo se reparte? |
+| Brechas | ¿Entre qué grupos se abre la diferencia? |
+| Instituciones | ¿Qué instituciones concentran el rezago? |
+| Cohortes | ¿El rezago empeora o mejora con el tiempo? |
+| Comparación | ¿Cómo se sitúa una institución frente al promedio nacional? |
+| Costo del rezago | ¿Cuánto cuesta el rezago en aranceles, con el arancel que el usuario fije? |
+| Riesgo y decisión | ¿A cuántos estudiantes alcanzaría una intervención según el umbral elegido? |
+| Metodología | ¿De dónde sale cada cifra y qué no puede afirmarse con ella? |
+| Detalle de institución | Ficha completa de una institución (acceso por *drillthrough*) |
+
+Son **9 páginas y 88 visuales** sobre un modelo en estrella de 1.246.760 filas
+de hechos y cuatro dimensiones, con **25 medidas DAX**, cinco relaciones y dos
+parámetros *what-if* —arancel anual y umbral de riesgo— que recalculan los
+indicadores al moverlos. El score de riesgo que alimenta la página de decisión
+proviene del modelo logístico implementado desde primeros principios en la
+Fase 3: el tablero consume el núcleo algorítmico del proyecto, no una
+estimación aparte.
+
+El tema (`powerbi/tema_sobreduracion.json`) repite la codificación de color de
+las figuras del informe —un color para lo destacado, gris para el contexto—,
+de modo que documento y tablero se lean con la misma gramática visual.
+
+**Cómo abrirlo**
+
+1. Generar los datos, que no se versionan por tamaño:
+
+   ```powershell
+   .venv\Scripts\python.exe -m scripts.exportar_powerbi
+   ```
+
+2. Abrir `powerbi/proyecto/Analisis.pbip` con **Power BI Desktop**.
+3. **Inicio → Actualizar**.
+
+> **Al abrirlo en otro equipo.** Las cinco consultas guardan la ruta absoluta
+> de la carpeta `powerbi/` de este proyecto, porque Power Query no admite rutas
+> relativas al archivo. Si el repositorio se clona en otra ubicación, la
+> actualización falla con *«No se pudo encontrar el archivo»*. Se corrige una
+> sola vez en **Inicio → Transformar datos → Configuración del origen de datos
+> → Cambiar origen**, apuntando a la carpeta `powerbi/` del equipo actual, y se
+> guarda. El detalle está en [powerbi/GUIA_POWERBI.md](powerbi/GUIA_POWERBI.md).
+
+El archivo `powerbi/Analisis.pbix` que genera Power BI Desktop al guardar como
+binario tampoco se versiona: el formato `.pbip` es la fuente, y el `.pbix` se
+obtiene de él con **Archivo → Guardar como**.
 
 ## 6. Decisiones técnicas documentadas
 
@@ -261,6 +346,21 @@ Los archivos de datos generados no se versionan: se regeneran con ese comando.
 | Escalar con parámetros **solo de entrenamiento** | Evita la fuga de información hacia el conjunto de prueba. |
 | Detección explícita de divergencia por tasa excesiva | Una excepción clara en vez de pesos infinitos o NaN silenciosos. |
 
+### Decisiones de la Fase 4
+
+| Decisión | Justificación |
+|----------|---------------|
+| Invertir el escalado antes de informar cualquier cifra | Los coeficientes y las medias en unidades estandarizadas no son interpretables: el lector necesita semestres, no desviaciones típicas. |
+| Declarar el orden de las categorías con `pd.Categorical` | En un eje ordinal el orden alfabético sugiere comparaciones que los datos no sostienen. |
+| Estratificar la brecha de género por área antes de afirmarla | Una diferencia agregada puede deberse a la composición de los grupos; la brecha se sostiene en las diez áreas, y eso es lo que permite enunciarla. |
+| Tres figuras principales, una por objetivo analítico, más una de apoyo | Una figura sin pregunta asociada es decoración; la correspondencia objetivo↔figura se comprueba con una aserción dentro del notebook. |
+| Título de cada figura redactado como enunciado | El título dice el hallazgo, no el nombre de las variables graficadas. |
+| Color con función: un destacado y un neutro | El color señala dónde mirar; todo lo demás es contexto en gris. |
+| Cuatro enunciados por figura: qué muestra, qué se infiere, qué límite tiene, cómo aporta | Obliga a declarar el límite de cada lectura junto al hallazgo, y no relegado al final del informe. |
+| Huella SHA-256 de cada archivo exportado | Permite verificar que la figura incluida en el informe es exactamente la que produjo el notebook. |
+| Aserción que contrasta las cifras del informe con las recién calculadas | Si una cifra del documento deja de coincidir con el dato, el notebook falla en vez de pasar inadvertido. |
+| Publicar el tablero como `.pbip` y no como `.pbix` | El binario no admite revisión por diff; el formato de proyecto deja el informe y el modelo como texto versionable. |
+
 ## 7. Validación y pruebas
 
 - **Motor de reglas** (`src/validacion.py`): 11 reglas sobre el conjunto
@@ -288,6 +388,18 @@ python -m pytest tests/ -v
 | F2 | Obtención, exploración, limpieza, transformación y validación | Completada |
 | F3 | Núcleo algorítmico, eficiencia y POO; modelación desde primeros principios | Completada (rama `fase-3/nucleo-algoritmico`, integrada en `main`) |
 | F4 | Reporte analítico, visualizaciones, discusión y comunicación | Completada |
+| — | Tablero interactivo en Power BI | Valor agregado, fuera de lo exigido |
+
+La Fase 4 cierra el proyecto con tres entregables: el notebook integrador
+`F4/F4_Reporte_Analitico.ipynb`, que recorre el flujo completo F1→F4 y produce
+las figuras y tablas finales; el informe
+`informe/Sumativa3_Fase4_Sebastian_Antunez.pdf`, que discute los resultados y
+sus límites; y la presentación `informe/Presentacion_Fase4_...pptx` con su
+guion cronometrado. A ellos se suma, por iniciativa propia y fuera de lo
+exigido, el **tablero de Power BI** descrito en el apartado 5.5: convierte los
+hallazgos fijos del informe en un instrumento que el lector puede interrogar,
+con dos parámetros que permiten evaluar escenarios de costo y de cobertura de
+una intervención.
 
 La trazabilidad de las mejoras aplicadas entre fases, con su commit e impacto técnico,
 está en [CHANGELOG.md](CHANGELOG.md).
@@ -297,7 +409,6 @@ está en [CHANGELOG.md](CHANGELOG.md).
 | Entrega | Archivo | Contenido |
 |---|---|---|
 | Fases 1 y 2 | `informe/Sumativa1_Fase1_2_Sebastian_Antunez.pdf` | Definición, pipeline y validación |
-| Fase 3 (formativa) | `informe/Formativa3_Fase3_Sebastian_Antunez.pdf` | Scripts y mediciones de complejidad |
 | Fase 3 (sumativa) | `informe/Sumativa2_Fase3_Sebastian_Antunez.pdf` | Núcleo algorítmico, eficiencia y POO |
 | Fase 4 | `informe/Sumativa3_Fase4_Sebastian_Antunez.pdf` | Reporte final integrador |
 
