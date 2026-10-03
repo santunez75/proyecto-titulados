@@ -142,11 +142,35 @@ pip install -r requirements.txt
 
 En Linux o macOS, reemplace la activación por `source .venv/bin/activate`.
 
-Verificación del entorno:
+> El entorno debe quedar **dentro de la carpeta clonada**, en
+> `proyecto-titulados/.venv`. No es una convención estética: el notebook de la
+> Fase 4 busca ahí el intérprete para lanzar las pruebas automatizadas y, si no
+> lo encuentra, recurre al Python del sistema, que no tiene las dependencias
+> instaladas. El síntoma es desconcertante —la celda de dependencias dice que
+> todo coincide y la de pruebas responde `No module named pytest`— porque cada
+> una está mirando un entorno distinto.
+
+Verificación del entorno. Las 73 pruebas no dependen de ningún dato externo:
+si pasan, el código y el entorno están correctos y lo que falte de ahí en
+adelante son solo datos.
 
 ```powershell
 python -c "from src import config; print(config.describir_entorno())"
 python -m pytest tests/ -v
+```
+
+Registro del kernel, necesario para re-ejecutar los notebooks:
+
+```powershell
+python -m ipykernel install --user --name proyecto-titulados --display-name "Python (proyecto-titulados)"
+```
+
+Por último, lance JupyterLab **desde esa misma consola, con el entorno
+activado**, y seleccione el kernel `Python (proyecto-titulados)` en cada
+notebook:
+
+```powershell
+jupyter lab
 ```
 
 ### 4.1 Qué trae el repositorio clonado y qué no
@@ -163,19 +187,24 @@ GitHub, de modo que ni ellos ni los artefactos derivados están versionados.
 | `data/interim/` y `data/processed/*.parquet` | **No incluidos** | `python -m src.pipeline` |
 | CSV del modelo en estrella de `powerbi/` | **No incluidos** | `python -m scripts.exportar_powerbi` |
 
-Sin los CSV originales el proyecto **igual se ejecuta**: los notebooks detectan
-que falta el Parquet, usan la muestra versionada de 5.000 registros y lo avisan
-en pantalla. Las 73 pruebas de `pytest` no dependen de ningún dato externo, así
-que son lo primero que debería funcionar en un equipo recién clonado.
+Las 73 pruebas de `pytest` no dependen de ningún dato externo, así que son lo
+primero que debería funcionar en un equipo recién clonado.
+
+Sin los CSV originales, cada notebook se comporta distinto, y la diferencia es
+deliberada. El de la Fase 3 detecta que falta el Parquet, usa la muestra
+versionada de 5.000 registros y lo avisa en pantalla: su objeto son los
+algoritmos, que se comprueban igual sobre menos filas. El de la Fase 4, en
+cambio, es el reporte final y sus cifras deben ser las del informe, de modo
+que se detiene en las comprobaciones previas en lugar de dibujar figuras sobre
+una muestra. Una figura con las cifras equivocadas es peor que una ejecución
+interrumpida.
 
 Los notebooks se descargan **ya ejecutados**, con todas sus salidas, figuras y
-tablas visibles: se pueden leer de principio a fin sin ejecutar nada. Están
-declarados contra el kernel `proyecto-titulados`; para re-ejecutarlos hay que
-registrarlo una vez en el entorno virtual:
-
-```powershell
-.venv\Scripts\python.exe -m ipykernel install --user --name proyecto-titulados --display-name "Python (proyecto-titulados)"
-```
+tablas visibles: se pueden leer de principio a fin sin ejecutar nada. Si se
+re-ejecuta la Fase 4 sin el conjunto completo, esa interrupción borra las
+salidas guardadas; se recuperan con
+`git checkout -- F4/F4_Reporte_Analitico.ipynb`, cerrando antes JupyterLab por
+completo para que no vuelva a escribir su copia en memoria.
 
 ## 5. Ejecución
 
